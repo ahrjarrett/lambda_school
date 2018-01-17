@@ -1,3 +1,6 @@
 [submodule "submodules/JavaScript-I"]
 	path = submodules/JavaScript-I
 	url = https://github.com/ahrjarrett/JavaScript-I
+[submodule "submodules/JavaScript-II-Mini"]
+	path = submodules/JavaScript-II-Mini
+	url = https://github.com/ahrjarrett/JavaScript-II-Mini
