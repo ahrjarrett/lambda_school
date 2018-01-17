@@ -1,0 +1,3 @@
+[submodule "submodules/JavaScript-I"]
+	path = submodules/JavaScript-I
+	url = https://github.com/ahrjarrett/JavaScript-I
