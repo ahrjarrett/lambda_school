@@ -1,0 +1,38 @@
+#+TITLE: Lambda School
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Introduction
+
+This repo tracks my progress as I work through [[https://lambdaschool.com/][Lambda School's]] 1-year Computer Science program.
+
+* Structure
+
+
+The repo is broken up into 3 parts:
+
+1. Code Challenges
+2. Notes
+3. Submodules
+   
+*Note:* In order to track which parts are being completed concurrently, the convention I chose is to prepend each file name with which day the file was created; for example, =notes/05_javascript_4.org= indicates that the file was created on the 5th day of class.
+
+** Code Challenges
+
+Code Challenges are daily algorithm problems that are completed in [[https://repl.it/student][repl.it]].
+
+** Notes
+
+All notes are org files, and include what we covered in class that particular day. Please note that although I try to review and revise these as much as possible, they might be prone to typos, and not all code blocks have been evaluated for correctness.
+
+** Submodules
+
+All class modules are forked from [[https://github.com/lambdaSchool/][Lambda School's Github account]]. Upon completion, I submit a PR.
+
+To organize the repo madness that is about to ensue, and at [[https://github.com/mixelpixel][Patrick's suggestion (CS1 cohort)]], I'm experimenting with adding these as submodules in order to effectively nest the repos inside this one.
+
+
+
+
+
