@@ -1,0 +1,55 @@
+* Timestamp & TODOS
+
+<2018-01-11 Thu>
+
+TODO: Finish =cacheFunction=, currently unsolved and commented out [[https://github.com/ahrjarrett/JavaScript-I/blob/master/src/closure.js#L37][here]] as of Jan 18. *Hint:* You can use the already-solved =limitCallFunction= to solve it!
+
+TODO: Add link to JavaScript 3 at Bottom.
+
+* JavaScript 1 Solution
+
+[[https://github.com/ahrjarrett/JavaScript-I/tree/dc8c373c77fe786082db7f7d55d7d947b0e17f49][Link to the Repo]]
+
+*Initial Thoughts:* For our 3rd day, the assignment seemed very difficult. I like that it's difficult, and it definitely sets a tone.
+
+As far as completion, I finished all the required exercises, but had trouble with a few of the stretch problems. Check out the commit titled "finished required solutions" in the repo above for progress. Will be intereting to look at down the line.
+
+** Intro to Rest & Spread Operators
+   
+This topic was discussed while working on the =limitFunctionalCallCount= problem which you can [[https://github.com/ahrjarrett/JavaScript-I/blob/master/src/closure.js#L25][view here]].
+
+Here it is inline. Essentially, we create a function that will only call the passed in callback if the callback has been called less than =n= times.
+
+#+BEGIN_SRC javascript
+  const limitFunctionCallCount = (cb, n) => {
+    let count = 0;
+    return (...args) => {
+      if (count < n) {
+	count++;
+	return cb(...args);
+      } return null;
+    };
+  };
+#+END_SRC
+
+Notice that, instead of using the built-in =arguments= object, we use the *rest* operator =...args= to access the array of objects that the callback takes and the wrapped function passes them to the callback in question. /Note/ that you must also access this array with the *spread* operator.
+
+With the rest & spread operator, we can do anything we would normally do with an array. Previously, the arguments object was an [[http://www.nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/][Array-Like Object]]. Under the hood, it actually looks more like: ={0: arg1, 1:arg2, 3:...}=.
+
+
+** Next Time: Recursion
+
+My implementation of [[https://github.com/ahrjarrett/JavaScript-I/blob/89744b16fb9e317e22f749d5f7be5014e562e1a5/src/arrays.js#L61][flatten]] demonstrates a nice use of recursion. Recursion is simply when a function calls itself recursively until it meets the base case.
+
+Here it is inline:
+
+#+BEGIN_SRC javascript
+  const flatten = (elements) => {
+    if (Array.isArray(elements)) {
+      return [].concat(...elements.map(flatten));
+    // base case:
+    } return elements;
+  };
+#+END_SRC
+
+Next time we'll talk more about recursion.

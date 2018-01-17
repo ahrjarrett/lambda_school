@@ -1,0 +1,318 @@
+#+TITLE: JavaScript IV Module
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+<2018-01-16 Tue 19:00>
+
+* Review: Recursion
+
+Everything that can be done with looping, can also be done with recursion. There are, however, a lot of things that recursion can do that looping cannot.
+
+#+BEGIN_SRC js
+  function rFactorial(n) {
+      if(n === 1) return n
+      return n * rFactorial(n - 1)
+  }
+  rFactorial(5)
+#+END_SRC
+
+* "this" in JavaScript
+
+When we use =this=, we're using it to define context.
+
+There are 4 different ways we can use =this=:
+
+** Principle: Global Context
+
+In the browser, the global context is =window=. If you're in node, the top level context is called =global=.
+
+#+BEGIN_SRC js
+  function whatIsThis() {
+      console.log(this)
+  }
+  whatIsThis() /* Global/Window */
+#+END_SRC
+
+** Principle: Implicit Binding
+
+#+BEGIN_SRC js
+  let newObj = {
+      name: 'Dan',
+      whatIsThis: function() {
+          console.log(this)
+      }
+  }
+  newObj.whatIsThis() // newObj
+#+END_SRC
+
+A shortcut, or way to think about this, is /"whatever is left of the dot"/. This is the context in which the method is being called. In this case, it is being called on =newObj=.
+
+** Principle: "New" Keyword
+
+Under the hood when we use the =new= keyword, the constructor automatically initiates an emtpy object =let this = {}=, then at the end does =return this=.
+
+#+BEGIN_SRC js
+  function User(attr) {
+      // constructor:
+      // let this = {}
+      // return this
+      this.username = attr.username
+      this.password = attr.password
+      this.email = attr.email
+      this.saysName = function() {
+          console.log(this.username)
+      }
+  }
+
+  let andrew = new User('andrew', 'barkbarkwoof', 'ahrjarrett@gmail.com')
+  andrew.saysName() // andrew
+#+END_SRC
+
+So instead of =this= returning the constructor, it acts somewhat similar to a variable. At the time of writing the constructor, we don't know what =this= will be. Only when the particular instance is instantiated does =this= actually refer to something specific (in this case, the object =andrew=).
+
+** Principle: Explicit Binding
+
+When we use implicit binding, we let JavaScript decide whatver =this= refers to.
+
+There are 3 methods we can use to explicitly tell JavaScript what context we want the context to be called in methods we can use to explicitly tell JavaScript what context we want the context to be called in.
+
+*** Function.prototype.bind()
+
+*Bind:* Don't infer the context of =this=, instead bind the context to the passed in value.
+
+#+BEGIN_SRC js
+  const dan = new User('dan', '123abc', 'dan@example.org')
+  const alex = new User('alex', '456xyz', 'alex@example.org')
+
+  let func = dan.saysName.bind(alex)
+  func() // 'alex'
+#+END_SRC
+
+*** Function.prototype.call()
+
+*Call:* Call lets you add arguments. The first argument is always going to be the context for =this=.
+
+So if we update our =User= constructor to add a new method:
+
+#+BEGIN_SRC js
+  function User(attr) {
+      // constructor:
+      // let this = {}
+      // return this
+      this.username = attr.username
+      this.password = attr.password
+      this.email = attr.email
+      this.saysName = function() {
+          console.log(this.username)
+      }
+      // new line:
+      this.getsPass = function(secret) {
+          console.log(`${this.username}: ${this.password}, secret: ${secret}`)
+      }
+  }
+
+  let andrew = new User('andrew', 'password123', 'ahrjarrett@gmail.com')
+  let dan = new User('dan', '456password', 'dan@gmail.com')
+  let func = andrew.getsPass.call(dan, 'this is the secret')
+
+  console.log(func) // 'dan: 456password, secret: this is the secret'
+#+END_SRC
+
+*** Function.prototype.apply()
+
+The difference between =call= and =apply= is that apply always takes an Array as its second argument.
+
+*Mneumonic Device:* /A is for Apply takes an Array/
+
+Apply is nice because you can simply pass the =arguments= keyword, i.e. =andrew.getsPass.apply(dan, arguments)=. We might not know how many arguments are in that array, but we do know that we want to pass them, in order, to the function.
+
+So whether you use =call= or =apply= really depends on how much you know about the arguments.
+
+Here's a great example of how we (used to) use =apply=:
+
+#+BEGIN_SRC js
+  function addsNums(a, b) {
+      let sum = a + b
+      let extraArgs = Array.slice.apply(arguments, 2)
+      extraArgs.forEach(arg => sum += arg)
+
+      return sum
+  }
+
+  addsNums(1, 2) // 3
+
+  addsNums(1, 2, 3, 4, 5) // 15
+#+END_SRC
+
+
+
+** Aside: Arrow Functions
+
+Arrow functions create their own complexity surrounding =this=. An arrow function actually holds its own context for =this=. We'll talk more about this when we get into React.
+
+** Mini Assignment
+
+[[https://github.com/LambdaSchool/JavaScript-II-Mini/blob/master/this.js][Complete "this.js" from JavaScript-II-Mini]]
+
+** Additional Resources
+
+[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this][MDN Docs for "this"]]
+
+
+
+* Classes in JavaScript
+
+Classes essentially are just object templates. Classes act a little differently than they do in object-oriented languages like Java and C#.
+
+We're going to use it in more of an object-oriented way right now, and then when we get to React, we'll use it in more of a functional way.
+
+#+BEGIN_SRC js
+  function User(name, pass, email) {
+      this.username = name
+      this.password = pass
+      this.email = email
+      this.saysName = function() { console.log(this.username) }
+  }
+
+  /* We use the "new" keyword when we use a constructor.
+   ,* We know that this because we used a capital letter,
+   ,* which is just a convention. */
+  let andrew = new User('andrew', '123password', 'ahrjarrett@gmail.com')
+  console.log(andrew) // { username: andrew, password: ... }
+  console.log(andrew.saysName()) // 'andrew'
+
+#+END_SRC
+
+But let's look at the =saysName= method. What's happening here?
+
+*Answer:* We're creating a new function /every time/ we instantiate a new user. Instead, we want to use the =prototype= object.
+
+** The prototype Object
+
+The prototype object is shared by all instances of a particular class, which means we only have to define it once.
+
+#+BEGIN_SRC js
+
+  function User(name, pass, email) {
+      this.username = name
+      this.password = pass
+      this.email = email
+      //this.saysName = function() { console.log(this.username) }
+  }
+
+  User.prototype.saysName = function() {
+      console.log(`username: ${this.username`}
+  }
+
+  let andrew = new User('andrew', 'mypassword', 'ahrjarrett@gmail.com')
+  // What happens if we log out andrew now?
+  console.log(andrew)
+  // => User { username: 'andrew', password: 'mypassword', email: 'ahrjarrett@gmail.com' }
+#+END_SRC
+
+Notice that the =saysName= method is not included when we log out the instantiated user now.
+
+So the prototypal chain looks something like this:
+
+/Window -> Object -> User -> andrew/
+
+In the browser DevTools, we can look at the hidden property =__proto__= that contains all of the prototype methods available.
+
+Let's look at a different example. Let's create a class called =Fruit=:
+
+#+BEGIN_SRC js
+  function Fruit(type, price, calories, isRipe) {
+      this.type = type
+      this.price = price
+      this.calories = calories
+      this.isRipe = isRipe
+  }
+
+  Fruit.prototype.eat = function() {
+      if(this.isRipe) console.log(`eating the ${this.type}`)
+      else console.log('that fruit isn\'t ripe yet! maybe wait a couple hours?')
+  }
+
+  Fruit.prototype.shipped = function(destination) {
+      console.log(`${this.type}, going to ${destination}`)
+  }
+
+  let banana = new Fruit('banana', 0.75, 70, true)
+
+  banana.eat() // eating the banana
+  banana.shipped('California') // banana, going to California
+
+  // But what if we want to add functionality to bananas specifically, instead of apples?
+  function Bananas(doMonkeysLikeIt, ...attrs) {
+      // This line is key! This is how we inherit from Fruit:
+      Fruit.call(this, ...attrs)
+      // We could also write it with apply:
+      //Fruit.apply(this, attrs)
+      this.doMonkeysLikeIt = doMonkeysLikeIt
+  }
+
+  console.log(banana)
+  // => Bananas { type: }
+
+  // But what's going to happen when we write `banana.shipped('California')` ?
+  // Bananas doesn't have a prototype of its own, so how do we get it to inherit from Fruit?
+
+  Bananas.prototype = Object.create(Fruit.prototype)
+
+#+END_SRC
+
+So we need to do 2 things to link a child to its parent (with prototype inheritance):
+
+1. Call the constructor with the new context of =this= (afterward we can add our own properties).
+2. Then we need to link the prototypes up. [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create][MDN docs for Object.create]]
+   
+So first:
+
+#+BEGIN_SRC js
+  function Banana(monkeysLikeIt, ...attrs) {
+      // 1. Call constructor and assign "this":
+      Fruit.call(this, ...attrs)
+      this.monkeysLikeIt = monkeysLikeIt
+  }
+#+END_SRC
+
+And then:
+
+#+BEGIN_SRC js
+  // 2. link up the prototypes:
+  Banana.prototype = Object.create(Fruit.prototype)
+
+  //
+  Banana.prototype.doMonkeysLikeIt = function() {
+      if(this.monkeysLikeIt === true) console.log('Monkeys like it.')
+  }
+#+END_SRC
+
+So now that we've got bananas down, let's create some apples:
+
+#+BEGIN_SRC js
+  function Apple(isSweet, ...attrs) {
+      Fruit.call(this, ...attrs)
+  }
+  Apple.prototype = Object.create(Fruit.prototype)
+
+  let honeyCrisp = new Apple(true, 'HoneyCrisp', 2.99, 130, true)
+  honeyCrisp.shipped('New York') // HoneyCrisp, going to New York
+#+END_SRC
+
+What if we wanted to add =doMonkeysLikeIt= to the Apple prototype?
+
+#+BEGIN_SRC js
+  // We'd use bind, call or apply:
+  banana.doMonkeysLikeIt.call(honeyCrisp)
+
+  // Or, we'd do it like this:
+  Banana.prototype.doMonkeysLikeIt.call(honeyCrisp)
+#+END_SRC
+
+
+
+** Assignment: Constructors.js
+
+[[https://github.com/LambdaSchool/JavaScript-II-Mini/blob/master/constructors.js][JavaScript-II-Mini Constructors.js file]]
