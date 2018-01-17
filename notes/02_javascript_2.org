@@ -1,0 +1,176 @@
+#+TITLE: JavaScript II Module
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+
+* Timestamp & TODOS
+
+<2018-01-09 Tue>
+
+- TODO: Rename this file
+
+* Code Challenge
+** Link
+[[https://github.com/ahrjarrett/lambda-school/code_challenges/02_reverseString.js][https://github.com/ahrjarrett/lambda_school/code_challenges/02_reverseString.js]]
+
+** My Solution
+#+BEGIN_SRC javascript
+  // write a fn called reverseString that takes a string and reverses it
+  const reverseString = str =>
+	str.split('')
+	.reverse()
+	.join('')
+#+END_SRC
+
+
+* Lecture
+** First let's look at Objects.
+
+#+BEGIN_SRC javascript
+  // Object methods:
+Object.create
+Object.assign
+Object.keys
+Object.values
+  
+// keys are unique; values do not have to be
+let obj = {
+  username: 'andrew jarrett',
+  password: '123',
+}
+
+console.log(Object) // => [Function: Object]
+
+console.log(Object.keys(user)) // [ 'username', 'also' ]
+
+/* Note: You could use a `for in` loop to look inside an array,
+   but the problem is that they don't necessarily come back in
+   the array, in the correct order. */ 
+
+#+END_SRC
+
+*** My Question
+    
+Q: "Question when you have time — when we =console.log(Object)= and get =[Function: Object]=, is there a console method to make that more verbose? just call =.toString()=, or is there a less hacky way to do it?"
+
+A: There really isn't a way. Try going to [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype][the MDN docs on Obect]] to research this.
+
+Thoughts: I really wish there was a better way to recursively inspect an Object. Elisp, for example, has insane docs on every function, even as you're looking at then inline you can pull them up in another buffer with =C-h f=.
+
+*** Let's talk about brackets versus 
+
+"Brackets take whatever data type is inside the brackets and asks for it literally."
+
+So if we did: 
+
+#+BEGIN_SRC javascript
+user[true] = 'my key is a boolean'
+#+END_SRC
+
+Technically in this case, we're assigning a key that is a Boolean inside a the object =user=. This isn't terribly userful, and if we used, for example, =Object.keys=, that method converts the keys to strings. So this could probably lead to a whole host of bugs (but might have interesting use cases?)
+
+*** What do we mean when we say everything in JavaScript is an Object?
+
+#+BEGIN_SRC javascript
+let cities = ['Austin', 'Portland', 'Seattle', 'Chicago']
+
+cities // ['Austin', 'Portland' ... ]
+
+// Now, if we did this in a more verbose way, it would render:
+{ 0: 'Austin', 1: 'Portland', 2: 'Seattle', 3: 'Chicago', this.split = function... }
+#+END_SRC
+
+*** Some Array methods mutate data
+    
+=slice= does *not* manipulate (or /mutate/) the array. It creates a new array and puts the substring you're asking for inside of it.
+
+=splice= *does* mutate the array. So use with care. Or don't use at all. Find another way.
+
+*** Next week: Prototypes
+
+=this= is very different in regular function declarations/expressions, and fat arrow functions. We'll cover this more next week.
+
+*** Functions
+
+**** Default Parameters
+
+#+BEGIN_SRC javascript
+function saysHello(name = 'Dan', age) {
+  return 'Hello ' + name
+}
+
+saysHello('Andrew') // => 'Hello Andrew'
+saysHello() // => 'Hello Dan'
+#+END_SRC
+
+**** The =arguments= Object
+
+=arguments= is an array-like object. This object is passed implicitly, and you can access it from inside the array by using the symbol.
+
+#+BEGIN_SRC javascript
+(function(n) { return arguments })(1000) // => { 0: 1000 }
+#+END_SRC
+
+**** Spread Operator
+
+Using the spread operator ( e.g. =...nums= ) inside a function declaration, like so:
+
+#+BEGIN_SRC javascript
+(function(...nums) { return nums })(1,2,3) // => [1,2,3]
+#+END_SRC
+
+We can also use them on arrays, like so:
+
+#+BEGIN_SRC javascript
+console.log(...[1,2,3]) // => 1 2 3
+#+END_SRC
+
+*** forEach vs. map
+
+The difference btwn =map= and =forEach= is that map is going to create a new array.
+
+=map= iterates over each item in the array and returns a new item, changed according to the function.
+
+#+BEGIN_SRC javascript
+const nums = [5,6,7,8]
+const multiplyByThree = item => item * 3 
+const newNums = nums.map(multiplyByThree)
+newNums // => [15,18,21,24]
+#+END_SRC
+
+*** reduce
+
+*The difference between map, filter and reduce, visually:*
+
+map([:corn:, :cow:, :chicken:], cook)
+=> [:popcorn:, :hamburger:, :poultry_leg:]
+
+filter([:popcorn:, :hamburger:, :poultry_leg:], vegetariansCantEat)
+=> [:hamburger:, :poultry_leg:]
+
+reduce([:hamburger:, :poultry_leg:], eat)
+=> :poop:
+
+[[https://twitter.com/steveluscher/status/741089564329054208][Original Source (tweaked here for Github)]]
+
+If we whipped up =reduce= using a for loop and took a peek under the hood, it might look a little something like this:
+
+#+BEGIN_SRC javascript
+let nums = [2,3,4,5]
+
+// reduce under the hood
+let startingPoint = 0
+for(let i = 0; i < nums.length; i++) {
+  let callbackItem = callback(startingPoint, num[i])
+}
+
+nums.reduce(function(startingPoint, item) {
+  return startingPoint + item
+}, 0)
+#+END_SRC
+
+
+* Pair Programming
+
+[[https://github.com/ahrjarrett/lambda-school/modules/JavaScript-I][https://github.com/ahrjarrett/lambda_school/modules/JavaScript-I]]
+
+

@@ -9,12 +9,11 @@ This repo tracks my progress as I work through [[https://lambdaschool.com/][Lamb
 
 * Structure
 
-
 The repo is broken up into 3 parts:
 
-1. Code Challenges
-2. Notes
-3. Submodules
+1. [[https://github.com/ahrjarrett/lambda_school/tree/master/code_challenges][Code Challenges]]
+2. [[https://github.com/ahrjarrett/lambda_school/tree/master/notes][Notes]]
+3. [[https://github.com/ahrjarrett/lambda_school/tree/master/submodules][Submodules]]
    
 *Note:* In order to track which parts are being completed concurrently, the convention I chose is to prepend each file name with which day the file was created; for example, =notes/05_javascript_4.org= indicates that the file was created on the 5th day of class.
 
