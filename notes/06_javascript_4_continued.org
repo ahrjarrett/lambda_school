@@ -1,0 +1,54 @@
+#+TITLE: JavaScript IV (Continued)
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Timestamp & TODOS
+
+<2018-01-17 Wed 19:00>
+
+TODO: Solve =reverseNumber= recursively, without changing the type (see code challenge solution below).
+
+* Code Challenge
+
+[[https://github.com/ahrjarrett/lambda_school/blob/master/code_challenges/05_reverseNumber.js][Solution here]]
+
+My solution, inline:
+
+#+BEGIN_SRC js
+  const flippedParse = (base, n) => parseInt(n, base)
+
+  const reverseNumber = n =>
+        flippedParse(
+          10,
+          new String(n).split('').reverse().join(''))
+#+END_SRC
+
+I actually didn't need to run parseInt, I could have just called =Number(n)= (I think I was trying =new Number(n)= and getting 
+
+A more hack-y solution is to multiply the string by 1, which returns a number (kinda cool).
+
+*Here's a way to solve it without coercing types at all:*
+
+#+BEGIN_SRC js
+  // 98765
+  function reverseNumber(n) {
+      let reversed = 0
+      while(n !== 0) {
+          reversed  *=  10      //  reversed  =  0
+          reversed  +=  n % 10  //  reversed  =  5
+                 n  -=  n % 10  //         n  =  98760
+                 n  /=  10      //         n  =  9876
+      }
+      return reversed
+  }
+#+END_SRC
+
+* Lecture: JavaScript IV
+
+** ES6 Classes
+
+
+
+
+

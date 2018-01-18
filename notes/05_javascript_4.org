@@ -1,7 +1,9 @@
-#+TITLE: JavaScript IV Module
+#+TITLE: JavaScript IV
 #+AUTHOR: Andrew Jarrett
 #+EMAIL: ahrjarrett@gmail.com
 #+OPTIONS: num:nil
+
+* Timestamp & TODOS
 
 <2018-01-16 Tue 19:00>
 
@@ -158,7 +160,6 @@ Arrow functions create their own complexity surrounding =this=. An arrow functio
 ** Additional Resources
 
 [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this][MDN Docs for "this"]]
-
 
 * Classes in JavaScript
 
