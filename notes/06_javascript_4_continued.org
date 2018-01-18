@@ -7,7 +7,9 @@
 
 <2018-01-17 Wed 19:00>
 
-TODO: Solve =reverseNumber= recursively, without changing the type (see code challenge solution below).
+TODO Solve =reverseNumber= recursively, without changing the type (see code challenge solution below).
+
+TODO Learn more about the =static= method on ES6 classes.
 
 * Code Challenge
 
@@ -48,7 +50,126 @@ A more hack-y solution is to multiply the string by 1, which returns a number (k
 
 ** ES6 Classes
 
+*** Review: Prototypical Inheritance
 
+#+BEGIN_SRC js
+  function Polygon(height, width) {
+      this.height = height
+      this.width = width
+      this.name = 'Polygon'
+  }
+
+  Polygon.prototype.expand = function() {
+      this.height = this.height * this.height
+      this.width = this.width * this.width
+      return `new height: ${this.height}, new width: ${this.width}`
+  }
+
+  function Square(sideLength) {
+      Polygon.call(this, sideLength, sideLength)
+      this.name = 'Square'
+  }
+
+  // Give us access to `expand` function
+  Square.prototype = Object.create(Polygon.prototype)
+
+  const poly = new Polygon(100, 300)
+  poly // => Polygon { height: 100, width: 300, name: 'Polygon' }
+  poly.expand() // => new height: 10000, new width: 90000
+
+  const sq = new Square(75)
+  sq // => Square { height: 75, width: 75, name: 'Square' }
+  sq.expand() // => new height: 5625, new width: 5625
+
+#+END_SRC
+
+*** New: ES6
+
+#+BEGIN_SRC js
+  class Polygon {
+      /* the "new" keyword invokes the constructor function: */
+      constructor() {
+          this.height = height
+          this.width = width
+          this.name = 'Polygon'
+      }
+
+      /* then, instead of adding to Polygon.prototype,
+      ,* we just add it inline like this: */
+      expand() {
+          this.height = this.height * this.height
+          this.width = this.width * this.width
+          return `new height: ${this.height}, new width: ${this.width}`
+      }
+
+      saysName() {
+          return `type of Shape: ${this.name}`
+      }
+  }
+
+  const poly = new Polygon(5, 10)
+  poly.constructor // => 
+
+
+    // So now we can create a Square!
+    /* Instead of doing Polygon.call(this, ...attrs), we extend polygon and "call" super
+     ,* and pass it the arguments: */
+  class Square extends Polygon {
+      constructor(sideLength) {
+          super(sideLength, sideLength)
+          this.name = 'Square'
+      }
+      // static is like the anti-prototype, btw!
+  }
+
+  const sq = new Square(75)
+
+  // now, because we extended Polygon, we can call saysName on square:
+  sq.saysName() // => type of Shape: Square
+#+END_SRC
+
+*** Classwork
+
+[[https://github.com/ahrjarrett/JavaScript-II-Mini/blob/650f48e0823278267c33c41a0ab29d623f4bbdef/classes.js][JS-II-Mini/classes.js]]
+
+Here's my solution, inline:
+
+#+BEGIN_SRC js
+  // problem #1
+  // convert the Animal constructor function from 'constructors.js' into an ES6 class
+  class Animal {
+    constructor({ name }) {
+      this.name = name
+    }
+    grow() {
+      return `${this.name} grew larger!`
+    }
+  }
+
+  const grizz = new Animal({ name: 'Grizzly' })
+  console.log(grizz.grow())
+
+  // problem #2
+  // convert the Cat constructor function from 'constructors.js' into an ES6 class
+  class Cat extends Animal {
+    constructor({ name }) {
+      super({ name })
+    }
+  }
+
+  const guido = new Cat({ name: 'Guido' })
+  console.log(guido.grow())
+
+  // if everything is setup properly the code below will print 'Foofie grew larger!'
+  // uncomment the code below to test your solution
+
+  const foofie = new Cat({
+    name: 'foofie',
+  })
+
+  console.log(foofie.grow())
+
+#+END_SRC
 
 
 
