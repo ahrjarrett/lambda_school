@@ -23,7 +23,7 @@ When we use =this=, we're using it to define context.
 
 There are 4 different ways we can use =this=:
 
-** Principle: Global Context
+** Principle #1: Global Context
 
 In the browser, the global context is =window=. If you're in node, the top level context is called =global=.
 
@@ -34,7 +34,7 @@ In the browser, the global context is =window=. If you're in node, the top level
   whatIsThis() /* Global/Window */
 #+END_SRC
 
-** Principle: Implicit Binding
+** Principle #2: Implicit Binding
 
 #+BEGIN_SRC js
   let newObj = {
@@ -48,7 +48,7 @@ In the browser, the global context is =window=. If you're in node, the top level
 
 A shortcut, or way to think about this, is /"whatever is left of the dot"/. This is the context in which the method is being called. In this case, it is being called on =newObj=.
 
-** Principle: "New" Keyword
+** Principle #3: "New" Keyword
 
 Under the hood when we use the =new= keyword, the constructor automatically initiates an emtpy object =let this = {}=, then at the end does =return this=.
 
@@ -71,7 +71,7 @@ Under the hood when we use the =new= keyword, the constructor automatically init
 
 So instead of =this= returning the constructor, it acts somewhat similar to a variable. At the time of writing the constructor, we don't know what =this= will be. Only when the particular instance is instantiated does =this= actually refer to something specific (in this case, the object =andrew=).
 
-** Principle: Explicit Binding
+** Principle #4: Explicit Binding
 
 When we use implicit binding, we let JavaScript decide whatver =this= refers to.
 
@@ -158,7 +158,6 @@ Arrow functions create their own complexity surrounding =this=. An arrow functio
 ** Additional Resources
 
 [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this][MDN Docs for "this"]]
-
 
 
 * Classes in JavaScript
