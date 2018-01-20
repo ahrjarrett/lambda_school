@@ -1,0 +1,9 @@
+
+[[https://github.com/lambdaschool/Sprint-Challenge--javascript][Sprint Challenge LS Repo]]
+
+We have 3 hours to submit a PR. We can use Google, friends, anyone besides other classmates or a TA.
+
+[[https://github.com/ahrjarrett/Sprint-Challenge--JavaScript][Link to My Repo]]
+
+
+

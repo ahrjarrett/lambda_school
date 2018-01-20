@@ -7,3 +7,6 @@
 [submodule "submodules/JavaScript-II"]
 	path = submodules/JavaScript-II
 	url = https://github.com/ahrjarrett/JavaScript-II
+[submodule "submodules/Sprint-Challenge--JavaScript"]
+	path = submodules/Sprint-Challenge--JavaScript
+	url = https://github.com/ahrjarrett/Sprint-Challenge--JavaScript
