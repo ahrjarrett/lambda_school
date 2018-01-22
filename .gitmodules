@@ -10,3 +10,6 @@
 [submodule "submodules/Sprint-Challenge--JavaScript"]
 	path = submodules/Sprint-Challenge--JavaScript
 	url = https://github.com/ahrjarrett/Sprint-Challenge--JavaScript
+[submodule "submodules/Data-Structures-I"]
+	path = submodules/Data-Structures-I
+	url = https://github.com/ahrjarrett/Data-Structures-I

@@ -1,0 +1,73 @@
+#+TITLE: Hadoop & Big Data
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+
+Processing large amounts of data (terabytes, petabytes) is now commonplace.
+
+Three measures of data:
+
+1. Volume
+2. Variety
+3. Velocity
+   
+Given the ever increasing amount of data, it is the goal of every company to process big data in order to derive insights from it.
+
+Enter Hadoop.
+
+* Hadoop
+
+How do we scale the mountains of data?
+
+Gone are the days that you can write a program executed from a single machine to process this data. Nowadays, we *divide and conquer*.
+
+If you're running on a single machine, you can try multiple threads to break down the work into independent, parallelizable workers.
+
+** Data Storage is Not Trivial
+
+- Data volumes are massive
+- Reliably storing PBs of data is challenging
+_ Disk/hardware failures
+
+** What Hadoop Provides
+
+- Redundant, fault-tolerant data storage
+- Parallel computation framework
+- Job coordination
+  
+The last one is probably the best part. It handles how to assign tasks to workers, and takes care of the plumbing and the nuts & bolts that happen behind the scenes, so as the developer, you can just focus on the code.
+
+Hadoop brings joy to data processing
+
+*** HDFS (Hadoop Distributed File System)
+
+- A distributed file system
+- Redundant storage
+- Designed to reliably store data using commodity hardware
+- Designed to expect hardware failures
+- Indended for large files
+- Designed for batch inserts (Hadoop 1.0)
+
+**** HDFS - Files and Blocks
+
+- Files are stored as collection of blocks
+- Blocks are 64 MB chunks of a file (configurable)
+- Blocks are replicated on 3 nodes (configurable)
+- The *NameNode* (NN) manages metadata about files and blocks [gatekeeper]
+- The *SecondaryNameNode* (SNN) holds a backup of the NN data
+- *DataNodes* (DN) store and serve blocks
+  
+
+*** Typical large-data problem/the /map-reduce/ paradigm
+
+- Iterate over a large number of records (map)
+- Extract something of interext from each (map)
+- Shuffle and sort intermediate results (map)
+- Aggergate intermediate results (reduce)
+- Generate final output (reduce)
+  
+
+- Implement two functions:
+  - =Map(k1, v1) -> list(k2, v2)=
+  - =Reduce(k2, list(v2)) -> list(v3)=
+- Value with same key go to same reducer
+
