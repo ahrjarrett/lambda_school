@@ -1,0 +1,176 @@
+#+TITLE: Data Structures I
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+TODO Rewatch video, finish up notes.
+
+* Code Challenge
+
+Write a function called =longestString= that takes an array of strings and returns the longest string in the array.
+
+** Solution
+
+[[https://github.com/ahrjarrett/lambda_school/blob/master/code_challenges/06_longestString.js][My solution]]
+
+My solution inline:
+
+#+BEGIN_SRC js
+  // MVP
+  // longestStr :: Array(String) -> String
+  const longestStr = arr => {
+    let longest = ''
+    arr.forEach(str => {
+      if(str.length > longest.length) longest = str
+    })
+    return longest
+  }
+
+  // Recursive solution:
+  // Helpers:
+  const head = arr => arr[0]
+  const rest = arr => arr.slice(1)
+
+  // rLongestStr :: Array(String) -> String
+  const rLongestStr = arr => {
+    const _rLongestStr = (arr, longest) => {
+      if(!arr.length) return longest
+      if(head(arr).length > longest.length) {
+        return _rLongestStr(rest(arr), head(arr)) 
+      }
+      else return _rLongestStr(rest(arr), longest)
+    }
+    return _rLongestStr(arr, '')
+  }
+#+END_SRC
+
+Here's a cool solution using the built-in =sort= method on the array object:
+
+#+BEGIN_SRC js
+  const longestString = arr =>
+      arr.sort((a, b) =>
+          b.length - a.length)[0]
+#+END_SRC
+
+
+* Data Structures I Lecture
+
+What is a data structure? A DS is a core computer science concept. A data structure is fundamentally 2 things:
+
+1. A way to store data in memory
+2. Each data structure has a unique method of accessing that data
+
+The first data structure we're going to talk about is the Stack.
+
+** Stacks
+
+Stacks are often compared to arrays, but the API surface area is much smaller. A Stack is basically an array with `push` and `pop` only.
+
+There is no lookup method, no reduce/map/filter.
+
+Stacks work on a *LIFO* data structure: /last in, first out/. An example of a Stack is the function call stack. The most recent item pushed into the Stack is returned first.
+
+Examples include:
+
+- Browser "back" button history (hitting back is essentially "popping" the most recent visited site off the history)
+- Function call stack
+- Edit -> Undo
+  
+** Queue
+
+Queues are the sibling to stack, but they are =FIFO=: /first in, first out/.
+
+Both Stacks and Queues maintain the order of items as they come in. Also, neither one can access a particular item.
+
+Instead of =pop= and =push=, we have =enqueue= and =dequeue=. Both Stacks and Queues have =size= methods on them.
+
+** Linked List
+
+LLs are similar to arrays in many ways, especially because they both store a list of data.
+
+There are some dissimilarities between the two; for example, arrays have contant time lookup for a particular index. Linked Lists have linear lookup times. However, LinkedLists have the ability to add items to a particular point in almost constant time, whereas for arrays, that is linear.
+
+So basically:
+
+| Data Structure | Behavior           | Big O Notation       |
+|----------------+--------------------+----------------------|
+| Linked List    | Look up            | Linear =O(n)=        |
+| Linked List    | Insertion/Deletion | Near Constant =O(1)= |
+| Array          | Look up            | Constant =O(1)=      |
+| Array          | Insertion/Deletion | Linear =O(n)=        |
+
+Each node of a LL has a =value= and a =pointer= property.
+
+#+CAPTION: A visual example of a Linked List's structure:
+[[./images/linked_list.png]]
+
+** Hash Tables
+
+- Should have the methods: =inserts=, =remove=, and =retrieve=
+- =insert= should take a key value pair and add the value to the hash table
+- =retrieve= should return the value associated with a key
+  
+
+Basically, you give a =key= to a /hashing function/. The hashing function runs some code on the key, and spits out an index.
+
+#+BEGIN_SRC js
+  // Hash table
+  hashtable = [ , , , ]
+
+  hashFunction(key, hashtable.length) {
+      // hashing code here
+      return index
+  }
+#+END_SRC
+
+The keys have to be unique, and the hashing function has to generate the same index/address /every time it runs/. So basically, it has to be pure/referentially transparent.
+
+*** Collisions: Buckets and Tuples
+
+What if the hashing function returns the same =key= for different =inputs=?
+
+We 
+
+*Rule:* If 75% of the space in a hash table is taken up, then we double the size of the hash table.
+
+
+
+
+
+* Implementing a Linked List
+
+#+BEGIN_SRC js
+  class LinkedList {
+      constructor() {
+          this.head = null;
+          this.tail = null;
+      }
+
+      addToTail(value) {
+        const node = {
+          value,
+          next: null
+        }
+
+        if(this.tail === null) {
+          this.tail = node
+          this.head = node
+          return
+        } 
+        this.tail.next = node
+        this.tail = node
+      }
+
+      removeHead() {
+
+      }
+
+      contains(value) {
+
+      }
+  }
+
+  const ll = new LinkedList() // => {head: null, tail: null}
+
+
+#+END_SRC
