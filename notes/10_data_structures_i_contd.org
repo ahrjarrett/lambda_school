@@ -1,0 +1,65 @@
+#+TITLE: JavaScript IV
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Code Challenge Solution
+
+*Instructions:* Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized. */
+
+[[https://github.com/ahrjarrett/lambda_school/blob/master/code_challenges/09_camel_case.js][My solution]]
+
+My solution inline:
+
+#+BEGIN_SRC js
+  const upperFirst = str => str[0].toUpperCase() + str.substr(1)
+
+  const toCamelCase = str => {
+    if(!str) return ''
+    const split = str.split(/[-_]/)
+    const upped = split.map(upperFirst)
+    upped[0] = split[0]
+    return upped.join('')
+  }
+
+  console.log(toCamelCase("the-stealth-warrior")) // => theStealthWarrior
+  console.log(toCamelCase("The_Stealth_Warrior")) // => TheStealthWarrior
+#+END_SRC
+
+A more imperative solution:
+
+#+BEGIN_SRC js
+  function stringToCamelCase(str) {
+      let stringArr = str.split(/[-_]/)
+      // start at index 1 to ignore first word
+      for (let i = 1; i < stringArr.length; i++) {
+          let newString = stringArr[i][0].toUpperCase() + stringArr[i].substr(i)
+          stringArr[i] = newString
+      }
+      return stringArr.join('')
+  }
+
+  stringToCamelCase('this-is-a-string') // => thisIsAString
+#+END_SRC
+
+Or a much more imperative solution:
+
+#+BEGIN_SRC js
+  function toCamelCase(str){
+      if (str.length === 0) {
+          return '';
+      }
+      let ret = str[0];
+      for (let i = 1; i < str.length; i++) {
+          if (str[i-1] === '-' || str[i-1] === '_') {
+              ret += str[i].toUpperCase();
+          } else {
+              if (str[i] !== '-' && str[i] !== '_') {
+                  ret += str[i];
+              }
+          }
+      }
+      return ret;
+  }
+#+END_SRC
+
