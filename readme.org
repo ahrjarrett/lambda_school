@@ -9,11 +9,12 @@ This repo tracks my progress as I work through [[https://lambdaschool.com/][Lamb
 
 * Structure
 
-The repo is broken up into 3 parts:
+The repo is broken up into 4 parts:
 
 1. [[https://github.com/ahrjarrett/lambda_school/tree/master/code_challenges][Code Challenges]]
 2. [[https://github.com/ahrjarrett/lambda_school/tree/master/notes][Notes]]
 3. [[https://github.com/ahrjarrett/lambda_school/tree/master/submodules][Submodules]]
+4. [[https://github.com/ahrjarrett/lambda_school/tree/master/brownbags][Brownbags]]
    
 *Note:* In order to track which parts are being completed concurrently, the convention I chose is to prepend each file name with which day the file was created; for example, =notes/05_javascript_4.org= indicates that the file was created on the 5th day of class.
 
@@ -29,9 +30,8 @@ All notes are org files, and include what we covered in class that particular da
 
 All class modules are forked from [[https://github.com/lambdaSchool/][Lambda School's Github account]]. Upon completion, I submit a PR.
 
-To organize the repo madness that is about to ensue, and at [[https://github.com/mixelpixel][Patrick's suggestion (CS1 cohort)]], I'm experimenting with adding these as submodules in order to effectively nest the repos inside this one.
+To organize the repo madness that is about to ensue, I'm experimenting with adding these as submodules in order to effectively nest the repos inside this one.
 
+** Brownbags
 
-
-
-
+Brownbag lectures are occassional lectures, talks or demos that others give on topics that they are knowledgable about. This folder is kind of a grab bag. If you attended a brownbag that I don't have listed, feel free to submit a PR with your notes and a link to the video!
