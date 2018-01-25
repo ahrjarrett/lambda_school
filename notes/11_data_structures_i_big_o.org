@@ -1,0 +1,95 @@
+#+TITLE: Data Structures I
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+TODO Finish extra credit for hash tables, other data structures.
+
+* Time Complexity
+
+** Big O
+
+When we talk about Big O, we are talking about the worst case scenario.
+
+Most of the time, the complexity lies in the amount of data given to an operation and the steps required to complete the operation.
+
+** Time and Space Complexity
+
+We use Big O to compare both time and space complexity.
+
+Time is the amount of time and operation will take to complete.
+
+Space is the amount of extra memory the operation needs to complete.
+
+*** =O(1)= : Contant Time
+
+The time to perform the operation will always be the same.
+
+If we're flying a file somewhere, boarding the plane and flying across country.
+
+Examples:
+- Index lookup in an array
+- =charAt=
+- Object key lookup
+- Capitalizing the first letter of a string
+- Space: Sorting an array in place.
+  
+*** =O(n)= : Linear Time
+
+The time to perform the operation will increase depending on the amount of data it is given.
+
+- Time: Looping through an array.
+- Space: =.map=
+
+*** =O(log N)= : Logarithmic
+
+Example:
+
+#+BEGIN_SRC js
+  function returnIndex(arr, item) {
+      // find the middle of array
+      // assume a sorted array
+  }
+  let arr = [1, 2, 3, 4, 5, 6, 7]
+#+END_SRC
+
+
+*** =O(n^2)= : Quadradic
+
+The time to complete the operation will take N amounts of time for 
+
+A classic example is a nested for loop.
+
+Example:
+
+#+BEGIN_SRC js
+  function compareAllNumbers(arr) {
+      // find the middle of array
+      for (let i = 0; /*...*/) {
+          for (let j = 1; /*...*/) {
+              //...
+              //...
+          }
+      }
+  }
+#+END_SRC
+
+Time: Nested for... loop on an array, comparing each item in an array with each other item.
+
+
+** Constants: We always take out constants.
+
+#+BEGIN_SRC js
+  function loopTwice(arr) {
+      for(let i = 0; i < arr.length; i++) {
+          console.log(arr[i])
+      }
+      for(let j = 0; j < arr.length; j++) {
+          console.log('second loop:', arr[j])
+      }
+  }
+#+END_SRC
+
+Although this is technically =O(2n)=, we ignore the constant and consider the second loop negligible.
+
+
