@@ -93,3 +93,174 @@ Time: Nested for... loop on an array, comparing each item in an array with each 
 Although this is technically =O(2n)=, we ignore the constant and consider the second loop negligible.
 
 
+* Hash Table Review
+
+A good metaphor for thinking of a hash table is a phonebook.
+
+[[https://github.com/ahrjarrett/Data-Structures-I/blob/92a6b14a2d7b5f5c8e9064dc0dc64208f0db8b04/src/hash-table.js][My Hash Table implementation]]
+
+Here's the implementation we created in the solution demo:
+
+#+BEGIN_SRC js
+    const { LimitedArray, getIndexBelowMax } = require('./hash-table-helpers');
+
+    class HashTable {
+      constructor(limit = 8) {
+        this.limit = limit;
+        this.storage = new LimitedArray(this.limit);
+      }
+
+      insert(key, value) {
+        // notice the key.toString here; i didn't include it & the tests still passed:
+        const hashIndex = getIndexBelowMax(key.toString(), this.limit);
+        // i'm not a huge fan of this way of assigning bucket, but it works:
+        const bucket = this.storage.get(hashIndex) === undefined ? [] : this.storage.get(hashIndex);
+
+        let newTuple = [key, value];
+        let replaced = false;
+        bucket = bucket.map(tuple => {
+          if(tuple[0] === key) {
+            replaced = true;
+            return newTuple;
+          }
+          return tuple;
+        });
+
+        if(!replaced) {
+          bucket.push(tuple);
+        }
+
+        this.storage.set(hashIndex, bucket);
+      }
+
+      remove(key) {
+        if(this.storage.length === 0) return;
+        const hashIndex = getIndexBelowMax(key);
+        let bucket = this.storage.get(hashIndex);
+        if(bucket === undefined || bucket.length === 0) return;
+
+        for(let i = 0; i < bucket.length; i++) {
+          let tuple = bucket[i];
+            if(tuple[0] === key) {
+              bucket.splice(i, 1);
+            }
+          }
+
+        this.storage.set(hashIndex, bucket);
+      }
+
+      retrieve(key) {
+        if(this.storage.length === 0) return undefined;
+        const hashIndex = getIndexBelowMax(key.toString(), this.limit);
+        const bucket = this.storage.get(hashIndex);
+        for(let i = 0; i < bucket.length; i++) {
+          if(bucket[i][0] === key) {
+            return bucket[i][1];
+          }
+        }
+        return undefined;
+      }
+    
+      resize() {
+        const resizeLimit = this.limit * 0.75;
+        if(this.storage.length < resizeLimit) return;
+        const oldHT = this.storage;
+        this.limit = this.limit * 2;
+        this.storage = new LimitedArray(this.limit);
+        oldHT.each((bucket, index) => {
+          if(Array.isArray(bucket)) {
+            for(let i = 0; i < bucket.length; i++) {
+              this.insert(...bucket[i]);
+            }
+          }
+        })
+      }
+    }
+
+    module.exports = HashTable;
+#+END_SRC
+
+
+* Doubly Linked List Review
+
+#+BEGIN_SRC js
+  class DoublyLinkedList {
+
+    addToHead(value) {
+      let oldHead = this.head;
+      let newHead = this._createNode(value)
+      if(oldHead === null) {
+        this.head = newHead;
+        this.tail = newHead;
+      } else {
+        newHead.next = oldHead;
+        this.head = newHead;
+        ///...
+      }
+
+      addToTail(value) {
+        ///
+
+      }
+
+      removeFromHead() {
+        let oldHead = this.head;
+        if(oldHead === null) return null;
+        if (oldHead.next !== null) {
+          this.head = oldHead.next;
+          this.head.prev = null;
+        } else {
+          this.head = null;
+          this.tail = null;
+        }
+        return oldHead;
+      }
+
+      removeFromTail() {
+        let oldTail = this.tail;
+        if (this.tail === null) return null;
+        if (this.tail.prev !== null) {
+          this.tail = this.tail.prev;
+          this.tail.next = null;
+        } else {
+          this.tail = null
+          this.head = null
+        }
+        return oldTail;
+      }
+
+      delete(node) {
+        if(node.value === this.head.value) {
+          this.removeFromHead()
+          return
+        }
+        if(node.value === this.tail.value) {
+          this.removeFromTail()
+          return
+        }
+        let current = this.head
+        while(current) {
+          if(current.value === node.value) {
+            current.prev.next = current.next
+            current.next.prev = current.prev
+            break
+          }
+          current = current.next
+        }
+        return
+      }
+
+      moveToFront(node) {
+        if(this.head.value === node.value) return
+        this.delete(node)
+        this.addToHead(node.value)
+      }
+
+      moveToBack(node) {
+        if(this.tail.value === node.value) return
+        this.delete(node)
+        this.addToTail(node.value)
+      }
+    }
+  }
+#+END_SRC

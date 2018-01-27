@@ -1,0 +1,45 @@
+#+TITLE: Imposter Syndrome Brownbag
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+#+SPEAKER: Daniel Frehner
+
+
+Every developer feels imposter syndrome at some point in their career. And with us, because we're learning, it can be even worse.
+
+* Combating Imposter Syndrome
+
+Finding "Value" in Disaster...
+
+The [[https://en.wikipedia.org/wiki/Dunning%25E2%2580%2593Kruger_effect]["Dunning-Kruger Effect"]] was discovered in a study where students studied a topic, and then were interviewed afterward. The study found that students who felt most confident in their knowledge performed poorly, and the students that reported a lack of confidence in their skills actually performed the best.
+
+#+BEGIN_QUOTE
+Victories diminish in importance; failures loom large. \\ 
+-- Julie Pagano
+#+END_QUOTE
+
+Our goal here at Lambda School is to create world-class researchers. /And that's essentially what a software developer is/.
+
+#+BEGIN_QUOTE
+It has been argued that the core aim of experiential learning... is  that the individual grows through reflection upon problem solving and challenging experiences that push boundaries or take participants out of their 'comfort zones'.
+#+END_QUOTE
+
+We aim for that sweetspot between "panic zone" and "comfort zone". In between is the *learning zone*.
+
+** Study and Stay Connected
+
+Focus on ONE topic ata  time. If you find something you're interested in along the way, write that topic down and devote attention to it later. Otherwise, just keep on studying what you're studying.
+
+- Meetups
+- Slack Channel
+- Family/Friends
+- Talk to LS Staff
+- Take Breaks
+
+#+BEGIN_QUOTE
+Stay connected with community. Studies have shown that those undertaking a task alone do far worse on that task than if they were to undertake it with peers and support. \\
+-- Some person
+#+END_QUOTE
+
+Do *not* isolate yourself!
+

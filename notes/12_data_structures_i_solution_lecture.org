@@ -1,0 +1,44 @@
+#+TITLE: JavaScript IV
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Code Challenge
+
+You are given an array of strings called arr and an integer k. Your task is to return the longest string consisting of k consecutive strings from the array.
+
+Example:
+
+=longestConsecutive(["zone", "abigail", "theta", "form", "libe", "zas"], 2) // => "abigailtheta"=
+
+n being the length of the string array.
+
+if n = 0 
+or k > n 
+or k <= 0 
+then return "".
+
+[[https://github.com/ahrjarrett/lambda_school/blob/master/code_challenges/11_longest_consecutive.js][My solution]] (to be honest, I was too busy with the extra credit in Data Structures I to finish this before class)
+
+My solution inline:
+
+#+BEGIN_SRC js
+  const longestConsecutive = (arr, n) => {
+    if(!arr.length || arr.length < n || n <= 0) return ''
+    const mapped = arr.map((item, index) =>
+      arr.slice(index, index + n).join(''))
+
+    return mapped.sort((a, b) => b.length - a.length)[0]
+  }
+
+  console.log(longestConsecutive(["zone", "abigail", "theta", "form", "libe", "zas"], 3))
+  // => "zoneabigailtheta"
+#+END_SRC
+
+
+
+
+
+
+
+
