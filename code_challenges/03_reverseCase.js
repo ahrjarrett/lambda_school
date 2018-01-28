@@ -1,3 +1,16 @@
+/*
+Write a function that takes in a string, reverses the 'casing' of that string.
+
+
+```
+reverseCase('HelloWorld');
+--> 'hELLOwORLD';
+
+reverseCase('DOG cat');
+--> 'dog CAT';
+```
+*/
+
 const reverseCase = str => str
   .split('').reduce(
     (acc, c) =>

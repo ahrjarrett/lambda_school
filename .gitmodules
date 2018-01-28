@@ -13,3 +13,6 @@
 [submodule "submodules/Data-Structures-I"]
 	path = submodules/Data-Structures-I
 	url = https://github.com/ahrjarrett/Data-Structures-I
+[submodule "submodules/Data-Structures-II"]
+	path = submodules/Data-Structures-II
+	url = https://github.com/ahrjarrett/Data-Structures-II
