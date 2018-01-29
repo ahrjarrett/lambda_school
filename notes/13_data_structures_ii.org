@@ -1,0 +1,110 @@
+#+TITLE: Data Structures I
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Todos
+
+* Pre-Class Research
+
+As of Sunday night, so far I've completed the homework for =Tree= and have 4 out of 5 tests passing for =BinarySearchTree=.
+
+** Breadth-First BST Traversal
+
+Where I first got stuck is breadth-first traversal of a tree. [[https://www.cs.bu.edu/teaching/c/tree/breadth-first/][This is a good article by Boston U about breadth-first traversal]].
+
+*** Who Cares?
+
+This is actually an important problem to solve. For example, org-mode relies on breadth-first traversal to determine the "rank" of a particular level of nesting. 
+
+Breadth-first search is useful when "level" matters, for example, in this document, if I wanted to see all nodes that are siblings of this node, I hit =SHIFT-TAB=, and every node that is child to this node (level 2 deep) and child of this node's siblings will collapse. In order to do this, we only need to traverse the document of nodes 3 levels deep: the root node, which can be thought of as the document itself, all =<h1>= or text indented with 1 star, and the children of all those with 1 star (or, every 2-star).
+
+Or, to use a cool example from the article:
+
+#+BEGIN_SRC
+Another time when breadth-first traversal comes in handy is with game trees. Suppose 
+we have a tree for a game of chess. In other words, levels of the tree  alternately 
+represent possible moves by you, and then by your opponent, and then by you...
+
+               current state of game
+        /                |             \
+   move                move     ...   move    <-- your moves
+   queen's             king's         queen
+   bishop              knight
+ /     |    \         /    |   \        |
+move  move   ...   move  move  ...     ...    <-- opponent's moves
+king  queen's      king  king's
+      rook               knight
+        |                  |
+        .                  .
+        .                  .
+        .                  .
+
+You have exactly 1 minute to decide on a move. Now, which would be a better use 
+of that time: exploring the branch where you "move your queen's bishop" to its 
+fullest extent (go deep) or explore each of your possible next move first, 
+and then your opponent's responses (breadth-first).
+#+END_SRC
+
+*** How we can make it work:
+
+We can use another data structure: [[https://github.com/ahrjarrett/Data-Structures-II/blob/77bb01e41b8fe7f4b041e049f33810aed3065e7e/src/queue-helper.js][a Queue]].
+
+#+BEGIN_SRC js
+  class Queue {
+      constructor() {
+          this.storage = [];
+      }
+
+      enqueue(x) {
+          this.storage.push(x);
+      }
+
+      dequeue() {
+          return this.storage.shift();
+      }
+
+      isEmpty() {
+          return this.storage.length === 0;
+      }
+  }
+#+END_SRC
+
+From the Boston University article:
+
+#+BEGIN_SRC
+What we'll do is store each element in the tree in a data structure and 
+process (or visit) them as we remove them from the data structure.
+
+We can best determine what data structure we need by looking at an example:
+
+   f
+ /   \
+a     h
+ \
+  d
+
+When we are at element f, that is the only time we have access to 
+its 2 immediate children, a and h. So, when we are at f, we'd better 
+put its children in the data structure. Obviously then, f must have 
+been in the data structure before them (i.e., first), since we'd have 
+put f in when we were at f's parent.
+#+END_SRC
+
+
+*** Roadblocks
+
+At first I thought we could simple add a =this.storage= property on the BST and, in the =insert= method, simply enqueue every element as we insert it. But on second thought, this doesn't solve the problem, because the order that this queue holds is dependent upon the order that they were inserted into the tree, which doesn't necessarily have any meaning outside of creating a history of the data structure.
+
+Instead, we will use queue in a more interesting way.
+
+*** Talking through a possible solution
+
+First, we can put the root node inside of the queue as the first and only value (for now).
+
+Then, we can execute a =while= loop to check if the queue is empty; if not, we will dequeue the first (and only) node and pass its value to the callback.
+
+Now, still inside the while loop, we will enqueue the node's left and the node's right.
+
+That's it for our while loop; now, the queue will have 2 elements in it (the former node's left and right values). We will continue to dequeue a node and enqueue its children to be passed into the callback later (but not before its sibling's value is passed to the function, and the sibling's children enqueued). When the final node is dequeued and its value is passed to the callback function, we exit the =while= loop.
+
