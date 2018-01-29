@@ -102,9 +102,81 @@ Instead, we will use queue in a more interesting way.
 
 First, we can put the root node inside of the queue as the first and only value (for now).
 
-Then, we can execute a =while= loop to check if the queue is empty; if not, we will dequeue the first (and only) node and pass its value to the callback.
+Then, we can execute a =while= loop to check if the queue is empty; it is not, so we will dequeue the first (and right now, only) node and pass its value to the callback.
 
 Now, still inside the while loop, we will enqueue the node's left and the node's right.
 
 That's it for our while loop; now, the queue will have 2 elements in it (the former node's left and right values). We will continue to dequeue a node and enqueue its children to be passed into the callback later (but not before its sibling's value is passed to the function, and the sibling's children enqueued). When the final node is dequeued and its value is passed to the callback function, we exit the =while= loop.
 
+
+*** Walking through the "breakpoints"
+
+Lambda School's test for breadth first traversal creates a tree that looks like this:
+
+#+BEGIN_SRC 
+                 5
+              /     \
+            3        10
+             \      /   \
+              4    9    11
+#+END_SRC
+
+That means our order should look like this: [5, 3, 10, 4, 9, 11]
+
+When we execute, first we put the root node into the queue and call the callback on 5. Here's what happens:
+
+#+BEGIN_SRC
+1. Queue: [5]
+
+                *5*              fn(5)
+              /     \            new queue: [3 10]
+            3        10          order: [5]
+             \      /   \
+              4    9    11
+
+
+2. Queue: [3 10]
+
+                 5               fn(3)
+              /     \            new queue: [10 4]
+           *3*       10          order: [5 3]
+             \      /   \
+              4    9    11
+
+
+3. Queue: [10 4]
+
+                 5               fn(10)
+              /     \            new queue: [4 9 11]
+            3       *10*         order: [5 3 10]
+             \      /   \
+              4    9    11
+
+
+4. Queue: [4 9 11]
+
+                 5               fn(4)
+              /     \            new queue: [9 11]
+            3        10          order: [5 3 10 4]
+             \      /   \
+             *4*   9    11
+
+
+5. Queue: [9 11]
+
+                 5               fn(9)
+              /     \            new queue: [11]
+            3        10          order: [5 2 10 4 9]
+             \      /   \
+              4   *9*   11
+
+
+6. Queue: [11]
+
+                 5               fn(11)
+              /     \            new queue: []
+            3        10          order: [5 2 10 4 9 11]
+             \      /   \
+              4    9    *11*
+
+#+END_SRC
