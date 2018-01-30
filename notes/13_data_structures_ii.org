@@ -180,3 +180,93 @@ When we execute, first we put the root node into the queue and call the callback
               4    9    *11*
 
 #+END_SRC
+* Pre-Class Video Notes
+
+[[https://www.youtube.com/watch?v=FBlxViiYm9A][This is the video of Sean talking about DS-II]] that we watched before class started. And here are my notes on that video!
+
+** Trees
+
+When you look at a tree, you can look at one branch and see that it is basically nothing more than a LinkedList. Note that one node can be a part of multiple LinkedLists.
+
+Trees have a few important use cases, but they're not as useful as other data structures in and of themselves. However, they are well-suited as a foundation for building more complex data structures.
+
+Besides BSTs, there are also prefix trees and B-trees, along with a host of other implementations.
+
+- Think of trees as being a much wider, fatter LL
+- Each parent node holds a reference to all of its children nodes, just like how each LL node holds a reference to the next node in the LL
+- Best suited for representing large, complex hierarchies
+
+** Binary Search Trees
+
+In a BST, each parent can have /at most/ 2 children. It can also have 1 child, or no children (in which case we call the node a /leaf/).
+
+Sorting happens upon insertion; nodes on the left are lesser than their parent(s), and the nodes on the right are greater than their parent(s).
+
+Because they are sorted from the outset, it makes them very efficient at searching for a particular node, hence the name.
+
+Instead of iterating through the entire tree, every time we make a comparison, we prune off half the tree and move closer to finding our value. This procedure has an =O(log(n)= time complexity, as opposed to linear.
+
+*** Logarithmic Time Complexity
+
+Although slow for very small input sizes, =O(log(n))= quickly becomes faster than linear time.
+
+So as the input size increases, computations that are =O(log(n))= remain extremely efficient.
+
+If we had a BST containing 1,000,000 nodes, how many steps would that take to perform?
+
+#+BEGIN_SRC
+  1000000 / 2 / 2 / 2 ... = 1?
+#+END_SRC
+
+In this case, the number of steps required to find the value, at worst, is about 20. This assumes a perfectly balanced tree, of course.
+
+*** 2 Types of Searching Algorithms
+
+There are 2 main categories of searching algorithms for trees:
+
+**** 1: Depth-First Search
+
+Traverse all the way down, then back up and across to find a particular node.
+
+**** 2: Breadth-First Search
+
+First traverse the node's immediately children, then traverse the grandchildren, then the great-grandchildren, and so on.
+
+** Graphs
+
+Graphs have been gaining traction in the past decade or so.
+
+One of the most common use cases for graphs is a network -- i.e., a social network like Facebook.
+
+Graphs may seem structurally similar to trees, but the purpose of a graph is representing connections between nodes. These connections, or *edges*, are what is important.
+
+The nodes, or /vertices/, are the points where lines connect, and the lines as already said are the /edges/.
+
+There are two main flavors of graphs:
+
+*** Directed Graphs
+
+Arrows, in a directed graph, represent directionality. If we were modeling a map, and the vertices are cities, then the edges could represent direction of traffic.
+
+Note that this traffic can be one way.
+
+*** Undirected Graphs
+
+When there isn't any inherent directionality involved or implied by an edge (for example, when two people are friends on Facebook, that connection is reciprocal and bi-directional), then we would use an undirected graph to model the problem.
+
+**** Representing connections
+
+This is an example of how we might represent connections, or edges, between vertices:
+
+#+BEGIN_SRC js
+  const graphNode1 = {
+      edges: ['graphNode2'],
+      ...
+  }
+
+  const graphNode2 = {
+      edges: ['graphNode1'],
+      ...
+  }
+#+END_SRC
+
