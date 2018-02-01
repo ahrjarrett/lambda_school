@@ -1,0 +1,18 @@
+#+TITLE: JavaScript IV
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Code Challenge
+
+Write a function called sortString that returns a passed string with letters in alphabetical order.
+ 
+Input: 
+
+'dcba'
+'zycxbwa'
+
+Expected Output:
+
+'abcd'
+'abcwxyz'
