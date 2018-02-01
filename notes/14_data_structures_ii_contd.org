@@ -15,7 +15,9 @@ Define a function that takes in a positive integer, and returns the Roman Numera
 
 Example: romanNumeralize(1990) should return 'MCMXC'.
 
+[[https://github.com/ahrjarrett/lambda_school/blob/master/code_challenges/13_roman_numerals.js][My solution]]
 
+My solution inline:
 
 #+BEGIN_SRC js
   const romanNumeralize = n => {
@@ -47,5 +49,47 @@ Example: romanNumeralize(1990) should return 'MCMXC'.
     'I': 1,
   }
 #+END_SRC
+
+Wesley's solutions:
+
+#+BEGIN_SRC js
+  function romanNumeralize(number) {
+      const romanNumerals = {
+          M: 1000,
+          D: 500,
+          C: 100,
+          L: 50,
+          X: 10,
+          V: 5,
+          I: 1,
+      }
+
+      const roman = {}
+      let romanNumber = ''
+
+      Object.entries(romanNumerals).reduce((acc, rn) => {
+          let base = Math.floor(acc / rn[1])
+          if (base) {
+              roman[rn[0]] = base
+              while(base) {
+                  romanNum += rn[0]
+                  base--
+              }
+              console.log(rumanNum)
+          }
+          return Math.floor(acc % rn[1])
+
+      }, number)
+
+      console.log(roman)
+  }
+
+  romanNumeralize(2763)
+#+END_SRC
+
+* Lecture: DS-II
+
+
+
 
 
