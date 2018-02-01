@@ -16,3 +16,19 @@ Expected Output:
 
 'abcd'
 'abcwxyz'
+
+[[https://github.com/ahrjarrett/lambda_school/blob/master/code_challenges/15_sort_string.js][My solution]]
+
+My solution inline:
+
+#+BEGIN_SRC js
+  const sortString = str =>
+    str.split('')
+      .map(s => s.charCodeAt(0))
+      .sort((a, b) => a - b)
+      .map(c => String.fromCharCode(c))
+      .join('')
+
+  console.log(sortString('hello'))   // => ehllo
+  console.log(sortString('zycxbwa')) // => abcwxyz
+#+END_SRC
