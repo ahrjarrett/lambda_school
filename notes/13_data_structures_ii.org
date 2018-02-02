@@ -3,11 +3,9 @@
 #+EMAIL: ahrjarrett@gmail.com
 #+OPTIONS: num:nil
 
-* Todos
-
 * Pre-Class Research
 
-As of Sunday night, so far I've completed the homework for =Tree= and have 4 out of 5 tests passing for =BinarySearchTree=.
+A breadth-first BST search can be tough to conceptualize -- or at least it was for me. To better understand what's going on, I wrote a step-by-step explanation of how we can solve this problem, and exactly what's going on at each step.
 
 ** Breadth-First BST Traversal
 
