@@ -15,9 +15,7 @@ Where I first got stuck is breadth-first traversal of a tree. [[https://www.cs.b
 
 This is actually an important problem to solve. For example, org-mode relies on breadth-first traversal to determine the "rank" of a particular level of nesting. 
 
-Breadth-first search is useful when "level" matters, for example, in this document, if I wanted to see all nodes that are siblings of this node, I hit =SHIFT-TAB=, and every node that is child to this node (level 2 deep) and child of this node's siblings will collapse. In order to do this, we only need to traverse the document of nodes 3 levels deep: the root node, which can be thought of as the document itself, all =<h1>= or text indented with 1 star, and the children of all those with 1 star (or, every 2-star).
-
-Or, to use a cool example from the article:
+Breadth-first search is useful when "level" matters. To use a cool example from the article:
 
 #+BEGIN_SRC
 Another time when breadth-first traversal comes in handy is with game trees. Suppose 
