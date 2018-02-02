@@ -1,4 +1,4 @@
-#+TITLE: JavaScript IV
+#+TITLE: 12: Data Structures I Lecture
 #+AUTHOR: Andrew Jarrett
 #+EMAIL: ahrjarrett@gmail.com
 #+OPTIONS: num:nil

@@ -1,4 +1,4 @@
-#+TITLE: JavaScript IV (Continued)
+#+TITLE: 06: JavaScript 4 Continued
 #+AUTHOR: Andrew Jarrett
 #+EMAIL: ahrjarrett@gmail.com
 #+OPTIONS: num:nil

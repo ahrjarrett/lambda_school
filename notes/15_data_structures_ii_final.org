@@ -1,4 +1,4 @@
-#+TITLE: JavaScript IV
+#+TITLE: 15: Data Structure II Solutions
 #+AUTHOR: Andrew Jarrett
 #+EMAIL: ahrjarrett@gmail.com
 #+OPTIONS: num:nil
@@ -31,4 +31,22 @@ My solution inline:
 
   console.log(sortString('hello'))   // => ehllo
   console.log(sortString('zycxbwa')) // => abcwxyz
+#+END_SRC
+
+Alex's solution:
+
+#+BEGIN_SRC js
+  function sortString(str) {
+    let array = str.split("");
+    for (let i = 0; i < array.length; i++) {
+      for (let j = 0; j < array.length - i -1; j++) {
+        if (array[j] > array[j+1]) {
+          let temp = array[j];
+          array[j] = array[j+1];
+          array[j+1] = temp;
+        }
+      }
+    }
+    return array.join("");
+  }
 #+END_SRC

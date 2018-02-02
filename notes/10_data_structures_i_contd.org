@@ -1,4 +1,4 @@
-#+TITLE: JavaScript IV
+#+TITLE: 10: Data Structures I Continued
 #+AUTHOR: Andrew Jarrett
 #+EMAIL: ahrjarrett@gmail.com
 #+OPTIONS: num:nil

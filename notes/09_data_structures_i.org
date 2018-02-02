@@ -1,4 +1,4 @@
-#+TITLE: Data Structures I
+#+TITLE: 09: Data Structures I
 #+AUTHOR: Andrew Jarrett
 #+EMAIL: ahrjarrett@gmail.com
 #+OPTIONS: num:nil

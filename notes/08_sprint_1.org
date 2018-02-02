@@ -1,3 +1,7 @@
+#+TITLE: 08: Sprint #1
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
 
 [[https://github.com/lambdaschool/Sprint-Challenge--javascript][Sprint Challenge LS Repo]]
 

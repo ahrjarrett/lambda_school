@@ -1,3 +1,7 @@
+#+TITLE: 14: Data Structures II Continued
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
 
 * Code Challenge
 
