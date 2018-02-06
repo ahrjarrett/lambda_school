@@ -1,0 +1,63 @@
+#+TITLE: 16: HTML & (Mostly) CSS
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+[[https://github.com/LambdaSchool/Precourse/tree/master/Lesson2-HTML-CSS][Week Outline]]
+
+* CSS Selectors
+
+** Weight (or specificity)
+
+*** Element Selectors:  
+
+An Element Selector has the least amount of "weight".
+
+To select an element, we simply name the element. For example, =div=.
+
+Example of an element selector:
+
+#+BEGIN_SRC css
+  div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid blue;
+  }
+#+END_SRC
+
+*** Class Selectors:
+
+A Class Selector has more specificity than an Element Selector, but less than an ID Selector.
+
+To select a class, we use dot notation; for example, =.divClass=.
+
+Example of a Class Selector:
+
+#+BEGIN_SRC css
+  .divClass {
+      background: yellow;
+  }
+#+END_SRC
+
+*** ID Selectors:
+
+IDs actually have a strong "weight" to them. They will override a large number of different levels of specificity.
+
+To select an id, we use the hash symbol; for example, =#divId=.
+
+Example of an ID Selector:
+
+#+BEGIN_SRC css
+  #divId {
+      background: green;
+  }
+#+END_SRC
+
+
+** CSS Reset
+
+Every browser sets its own default rules about how an empty page looks, with regards to CSS.
+
+To "reset" or normalize this, we can use something like [[https://meyerweb.com/eric/tools/css/reset/][Eric Meyer's Reset CSS]] library.
+
+
