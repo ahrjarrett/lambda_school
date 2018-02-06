@@ -16,3 +16,6 @@
 [submodule "submodules/Data-Structures-II"]
 	path = submodules/Data-Structures-II
 	url = https://github.com/ahrjarrett/Data-Structures-II
+[submodule "submodules/Sprint-Challenge--Data-Structures"]
+	path = submodules/Sprint-Challenge--Data-Structures
+	url = https://github.com/ahrjarrett/Sprint-Challenge--Data-Structures/
