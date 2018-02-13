@@ -1,0 +1,103 @@
+#+TITLE: 18: Responsive Design #1
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Pre-class reading
+
+[[https://www.markupbox.com/blog/fixed-vs-fluid-vs-adaptive-vs-responsive-layout/][Fixed vs Fluid vs Adaptive vs Responsive Layout Article]]
+
+** Notes:
+
+*** Fixed Layout
+
+Fixed Layout is not typically what you want (if you want a good UX).
+
+*Advantages:*
+
+1. These layouts make it easier for designers to design and add functionalities to the page.
+
+2. Since the sizes are the same for every browser, one does not have to worry about the size of the images.
+
+*Disadvantages:*
+
+1. A fixed layout can create a lot of extra white space when viewed on larger screen devices.
+
+2. The usability of the fixed width website scores less as compared to other types.
+   
+*** Fluid Layout
+
+A fluid design allows percentage width of the layout components. These components adjust to the screen resolution of the user.
+
+*Advantages:*
+
+1. This type of a web page design is definitely more user-friendly than a fixed website design.
+
+2. The white space in this kind of a website design is optimized for different screen resolutions.
+   
+*Disadvantages:*
+
+1. The designer has to ensure that there is no problem in the design with respect to different screen resolutions. This may become a challenge at times.
+
+2. Content types with a set width (like images and video) cannot be set according to different screen resolutions.
+
+3. One has to ensure that there is enough content so that the white space is not excessive, for very large screen resolutions.
+
+*** Adaptive Web Design
+
+This kind of design focuses on the need of the user and uses a progressive enhancement technique to design the web pages. Adaptive web design adapts itself to fit into various screen resolutions. Adaptive web design relies on predefined screen sizes to adapt itself to resolutions across devices.
+
+*Advantages:*
+
+1. Adaptive website design fits into different screen sizes and is user-friendly for the website visitors.
+
+*Disadvantages:*
+
+1. Adaptive designs are not very convenient to create as one has to create different layouts for different screen sizes.
+
+2. The second disadvantage is related to the first. While creating different layouts for different screen sizes, one cannot cover all the sizes for all the screen resolutions, especially the new ones.
+*** Responsive Web Design
+
+A responsive website design is the most popular form for businesses in today's times.
+
+*Advantages:*
+
+1. A responsive website loads faster than an adaptive website design as there is only one master layout that has to be loaded across devices.
+
+*Disadvantages:*
+
+1. It is slightly difficult to create a responsive website design, as compared to other formats. it requires a thorough development and testing process to ensure it is working correctly on all devices. The design has to planned well, so it can work on different screen sizes.
+
+
+* Responsive Design Lecture
+
+A responsive website is both fluid and adaptive.
+
+** Viewport Basics
+
+[[https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag][Mozilla Docs on Viewport meta tag]]
+
+An example of what a mobile-optimized site contains:
+
+#+BEGIN_SRC html
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+#+END_SRC
+
+** Media Queries
+
+[[https://developer.mozilla.org/en-US/docs/web/css/@media][Mozilla Docs on Media Queries]]
+
+There are a lot of media queries besides just screen. Others include =print= and =speech=.
+
+*Note:* =@media= is shorthand for =@media all=.
+
+Example of using a media query in vanilla CSS:
+
+#+BEGIN_SRC css
+  @media (max-width: 768px) {
+      /* 768 was the original iPad width */
+      /* anything 400 & smaller is considered a phone size */
+      .some-class { width: 100px; }
+      .some-other-class { background: purple; }
+  }
+#+END_SRC
