@@ -22,3 +22,6 @@
 [submodule "submodules/User-Interface"]
 	path = submodules/User-Interface
 	url = https://github.com/ahrjarrett/User-Interface
+[submodule "submodules/Responsive-Web-Design"]
+	path = submodules/Responsive-Web-Design
+	url = https://github.com/ahrjarrett/Responsive-Web-Design
