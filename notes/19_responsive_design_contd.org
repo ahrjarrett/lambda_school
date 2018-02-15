@@ -20,8 +20,38 @@ const onlyEven = evenOccurrence([1, 7, 2, 4, 5, 6, 8, 9, 6, 4]);
 console.log(onlyEven); //  4 
 #+END_SRC
 
+[[https://github.com/ahrjarrett/lambda_school/blob/master/code_challenges/19_first_even_occurrence.js][My solution]]
 
+My solution inline:
 
 #+BEGIN_SRC js
+const evenOccurrence = arr => {
+  const result = []
+  const newArr = arr.reduce((acc, curr) =>
+    acc.has(curr)
+      ? acc.set(curr, acc.get(curr) + 1)
+      : acc.set(curr, 1)
+  , new Map())
+  .forEach((v,k) => result.push([k,v]))
+  
+  const found = result.find(i => i[1] % 2 === 0)
+  return found ? found[0] : null
+}
 
+evenOccurrence([1, 7, 2, 4, 5, 6, 8, 9, 6, 4]) // => 4
+evenOccurrence([8,7,6,7,5,4,3,2,1,7,1]) // => 1
+#+END_SRC
+
+Wesley's solution, which uses a toggle instead of an increment. Cool! 
+
+#+BEGIN_SRC js
+  function evenOccurrence(arr) {
+    const counted = {}
+    arr.forEach(e => {
+      if (counted.hasOwnProperty(e)) counted[e] = !counted[e]
+      else counted[e] = false
+    })
+    const answer = arr.find(e => counted[e])
+    return answer ? answer : null
+  }
 #+END_SRC
