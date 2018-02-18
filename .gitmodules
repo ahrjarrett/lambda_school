@@ -25,3 +25,6 @@
 [submodule "submodules/Responsive-Web-Design"]
 	path = submodules/Responsive-Web-Design
 	url = https://github.com/ahrjarrett/Responsive-Web-Design
+[submodule "submodules/Sprint-Challenge--UI-Responsive"]
+	path = submodules/Sprint-Challenge--UI-Responsive
+	url = https://github.com/ahrjarrett/Sprint-Challenge--UI-Responsive

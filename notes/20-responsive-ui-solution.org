@@ -9,6 +9,19 @@
 
 * Code Challenge
 
+[[https://github.com/ahrjarrett/lambda_school/blob/master/code_challenges/20_collatz_sequence.js][My solution]]
+
+My solution inline:
+
+#+BEGIN_SRC js
+  const collatzSequence = n => {
+    if (n === 1) return n
+    return n % 2 
+      ? [n].concat(collatzSequence(n * 3 + 1))
+      : [n].concat(collatzSequence(n / 2))
+  }
+#+END_SRC
+
 Wesley's solution:
 
 #+BEGIN_SRC js
