@@ -3,14 +3,43 @@
 #+EMAIL: ahrjarrett@gmail.com
 
 ** Week 1:
+/January 8-13/
 - JavaScript I ([[https://github.com/ahrjarrett/JavaScript-I/tree/3355bf7aff24e565d03fe363c00bda19ffdcd354][Repo]])
 - JavaScript II Mini ([[https://github.com/ahrjarrett/JavaScript-II-Mini/tree/d92449a1e53e1998fd6fb32f86eba65e9b453626][Repo]])
 ** Week 2:
+/January 15-20/
 - JavaScript II ([[https://github.com/ahrjarrett/JavaScript-II/tree/fe87ee53bb258c5c760a202a1a26ad6df8f4fc0c][Repo]])
-- Sprint Challenge ([[https://github.com/ahrjarrett/Sprint-Challenge--JavaScript/tree/abecc8f4001e2836c20f245e4b7ed57cfb8d39f1][Repo]])
+- Sprint Challenge: JavaScript ([[https://github.com/ahrjarrett/Sprint-Challenge--JavaScript/tree/abecc8f4001e2836c20f245e4b7ed57cfb8d39f1][Repo]])
 ** Week 3:
+/January 22-27/
 - Data Structures I ([[https://github.com/ahrjarrett/Data-Structures-I/tree/9fc4bec0cbb4bbf0f1d35c3bd57d358045cf7c62][Repo]])
 ** Week 4:
+/January 29 - February 3/
 - Data Structures II ([[https://github.com/ahrjarrett/Data-Structures-II/tree/56f5c941f29773b66b5f7741a959267cfbcdfdf0][Repo]])
+- Spring Challenge: Data Structures ([[https://github.com/ahrjarrett/Sprint-Challenge--Data-Structures/tree/1ca399c2b7b916c88eb987759aef63ba7d60b6cb][Repo]])
 ** Week 5:
+/February 5-10/
 - HTML & CSS ([[https://github.com/ahrjarrett/User-Interface/tree/0cb3ada395e86928d21184a5abb34c453e0da864][Repo]])
+** Week 6:
+/February 12-17/
+- Responsive UI Design ([[https://github.com/ahrjarrett/Responsive-Web-Design/tree/6a26345c8c89ff73060b1a4d8d4c65ece6541357][Repo]])
+- Sprint Challenge: Responsive UI ([[https://github.com/ahrjarrett/Sprint-Challenge--UI-Responsive/tree/01ddbac9f51418d6f632e4594d457169fcbf6ff1][Repo]])
+** Week 7:
+/February 19-24/
+- Preprocessors I ([[https://github.com/ahrjarrett/Preprocessing-I/tree/1efada7c171396d7157bafa4eab0661824054bf5][Repo]])
+- Preprocessors II ([[https://github.com/ahrjarrett/Preprocessing-II/tree/0e747acfba25348dd8bf6557fb872cb5f0c02e50][Repo]])
+  
+
+
+THE FUTURE:
+
+** Week 8:
+/February 26 - March 3/
+** Week 9:
+/March 5-10/
+** Week 10:
+/March 12-17/
+** Week 11:
+/March 19-24/
+** Week 12:
+/March 26-31/
