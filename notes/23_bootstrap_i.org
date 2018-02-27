@@ -1,0 +1,20 @@
+#+TITLE: 23: Bootstrap I
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Timestamp & TODOS
+
+<2018-02-26 Mon 19:00>
+
+First class taught by Diandra Ryan-Mas.
+
+This class will be about the Bootstrap framework, but it will also be about frameworks in general.
+
+* Bootstrap Lecture
+
+We need a couple things before we can get started with Bootstrap. First, there is some [[html%20boiler][html boilerplate]] we need to add in.
+
+Next, if we're using any JavaScript functionality, we need to include jQuery, Popper.js, and `bootstrap.min.js` itself.
+
+
