@@ -1,0 +1,52 @@
+#+TITLE: 24: Bootstrap I Continued
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Timestamp & TODOS
+
+<2018-02-27 Tue 19:00>
+
+* Code Challenge
+
+Calculate and return the number of days between two dates as a string.
+Dates may be in any combination of ISO, short or long formats.
+If `end` occurs before `start`, return '-1'
+
+[[https://github.com/ahrjarrett/lambda_school/blob/master/code_challenges/25_days_between.js][My solution]].
+
+My solution inline:
+
+#+BEGIN_SRC javascript
+function daysBetween (start, end) {
+  const s = new Date(start)
+  const e = new Date(end)
+  return e < s
+    ? '-1' 
+    : ((e - s) / 86400000).toString()
+}
+
+console.log(daysBetween('11/17/17', '11/16/17')) // => '-1'
+console.log(daysBetween('11/17/17', '11/18/17')) // => '1'
+#+END_SRC
+
+Wesley's solution uses =Date.parse()= instead of =new Date()=, and is more aggressive about checking for =NaN=:
+
+#+BEGIN_SRC javascript
+  function daysBetween(start, end) {
+    /* Date.parse returns milliseconds || NaN */
+    const date_start = Date.parse(start)
+    const date_end = Date.parse(end)
+
+    /* Check for proper date format */
+    if (isNaN(date_start) || isNaN(date_end)) {
+      throw "At least one date is not a date"
+    }
+
+    const factor = 1000 * 60 * 60 * 24
+
+    return (`${(date_end - date_start)/factor}`)
+  }
+#+END_SRC
+
+
