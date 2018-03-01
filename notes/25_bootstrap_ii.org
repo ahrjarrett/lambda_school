@@ -1,0 +1,26 @@
+#+TITLE: 25: Bootstrap II
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Timestamp
+
+<2018-02-28 Wed 19:00>
+
+* Bootstrap II Lecture
+
+This lecture is focused on the JS side of Bootstrap.
+
+Keep in mind that interacting with the JS functionality doesn't necessarily mean writing JS because Bootstrap abstracts a lot of that away.
+
+A couple things that require JS include form validation, communicating with the backend, and manipulating the DOM.
+
+** Utilities
+
+[[https://getbootstrap.com/docs/4.0/utilities/borders/][Utilities Documentation]]
+
+Utilities are a handy way to write declarative HTML without (necessarily) 
+
+Border: Add ="border"= to a div and you'll get a 1px solid border. There are themes and other variations, too.
+
+

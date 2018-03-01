@@ -37,3 +37,6 @@
 [submodule "submodules/Bootstrap-I"]
 	path = submodules/Bootstrap-I
 	url = https://github.com/ahrjarrett/Bootstrap-I
+[submodule "submodules/Bootstrap-II"]
+	path = submodules/Bootstrap-II
+	url = https://github.com/ahrjarrett/Bootstrap-II
