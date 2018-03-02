@@ -28,13 +28,10 @@
 /February 19-24/
 - Preprocessors I ([[https://github.com/ahrjarrett/Preprocessing-I/tree/1efada7c171396d7157bafa4eab0661824054bf5][Repo]])
 - Preprocessors II ([[https://github.com/ahrjarrett/Preprocessing-II/tree/0e747acfba25348dd8bf6557fb872cb5f0c02e50][Repo]])
-  
-
-
-THE FUTURE:
-
 ** Week 8:
 /February 26 - March 3/
+- Bootstrap I ([[https://github.com/ahrjarrett/Bootstrap-I/tree/9bca83556572707e9b24c1acfd425a01b188a070][Repo]])
+- Bootstrap II ([[https://github.com/ahrjarrett/Bootstrap-II/tree/c50f418c77260d7037e6205c80767d8d26625100][Repo]])
 ** Week 9:
 /March 5-10/
 ** Week 10:
