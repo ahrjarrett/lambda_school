@@ -20,7 +20,6 @@ const sumOfDigits = (n, acc = 0) =>
     ? acc
     : sumOfDigits(floor(n / 10), acc + n % 10)
 
-
 console.log(sumOfDigits(23))   // => 5
 console.log(sumOfDigits(496))  // => 19
 
