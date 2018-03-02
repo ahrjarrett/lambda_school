@@ -1,4 +1,4 @@
-;; repl.it: https://repl.it/@ahrjarrett/TroubledMetallicAutosketch
+;; repl.it: https://repl.it/@ahrjarrett/sum-of-digits-in-clojure
 
 ;; Write a function called sumOfDigits that given a positive integer, returns the sum of its digits.Assume all numbers will be positive. 
 ;; Sample: 
