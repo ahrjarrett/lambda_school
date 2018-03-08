@@ -1,0 +1,72 @@
+#+TITLE: 02: JavaScript II
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Timestamp & TODOS
+
+<2018-03-08 Thu 19:00>
+
+* Code Challenge: =expandedNums=
+
+
+
+My solution inline:
+
+#+BEGIN_SRC javascript
+  const times = (n, f) => (...args) => {
+    const _recurse = (...args) => {
+      f(...args)
+      if (n === 1) return
+      times(n - 1, f)(...args)
+    }
+    _recurse(...args)
+  }
+
+  const expandedNums = n => {
+    if (n < 10) return n
+    const length = `${n}`.length - 1
+    let mod = 1
+    // Mutation:
+    times(length, mo => mod = mod * 10)(mod)
+    const remainder = n % mod
+    return `${n - remainder} + `.concat(expandedNums(remainder))
+  }
+
+  console.log(expandedNums(562)) // => '500 + 60 + 2'
+  console.log(expandedNums(2)) // => '2'
+  console.log(expandedNums(1000420910)) // => 1000000000 + 400000 + 20000 + 900 + 10 + 0
+#+END_SRC
+
+Instructor's solution:
+
+#+BEGIN_SRC javascript
+  /*
+
+   1. write a fx takes in a num
+   2. create num var
+   3. turn num into string
+   4. turn num/string into an arr
+   5. bring num back together
+
+   ,*/
+
+
+  function expandedNums (num) {
+    
+    return num
+    .toString()
+    .split('')
+    .reduce(function (currentVal, nextVal, index, array) {
+      if (array[index] === '0') {
+        return currentVal + nextVal;
+      }
+    return currentVal + '0'
+    .repeat(array.length - index) + ' + ' + nextVal;
+    });
+  }
+
+  var num = 562;
+  console.log(expandedNums(num));
+#+END_SRC
+
