@@ -46,3 +46,6 @@
 [submodule "submodules/DOM-I"]
 	path = submodules/DOM-I
 	url = https://github.com/ahrjarrett/DOM-I
+[submodule "submodules/DOM-II"]
+	path = submodules/DOM-II
+	url = https://github.com/victoramontoya/DOM-II
