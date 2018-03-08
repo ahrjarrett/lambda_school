@@ -43,3 +43,9 @@
 [submodule "submodules/Sprint-Challenge--Web-Tools-And-Frameworks"]
 	path = submodules/Sprint-Challenge--Web-Tools-And-Frameworks
 	url = https://github.com/ahrjarrett/Sprint-Challenge--Web-Tools-And-Frameworks
+[submodule "submodules/DOM-I"]
+	path = submodules/DOM-I
+	url = https://github.com/ahrjarrett/DOM-I
+[submodule "submodules/DOM-II"]
+	path = submodules/DOM-II
+	url = https://github.com/ahrjarrett/DOM-II
