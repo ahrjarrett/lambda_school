@@ -1,4 +1,4 @@
-#+TITLE: 02: JavaScript II
+#+TITLE: 29: DOM-II (Continued)
 #+AUTHOR: Andrew Jarrett
 #+EMAIL: ahrjarrett@gmail.com
 #+OPTIONS: num:nil
@@ -9,7 +9,7 @@
 
 * Code Challenge: =expandedNums=
 
-
+[[https://github.com/ahrjarrett/lambda_school/blob/master/code_challenges/29_expanded_nums.js][My solution]].
 
 My solution inline:
 
@@ -68,5 +68,20 @@ Instructor's solution:
 
   var num = 562;
   console.log(expandedNums(num));
+#+END_SRC
+
+My solution rewritten:
+
+#+BEGIN_SRC javascript
+  const expandedNums = n =>
+    n.toString()
+     .split('')
+     .map((str, i, arr) => str * pow(10, arr.length - i - 1))
+     .filter(n => n !== 0)
+     .join(' + ')
+
+  expandedNums2(1091) // => 1000 + 90 + 1
+  expandedNums2(592) // => 500 + 90 + 2
+
 #+END_SRC
 

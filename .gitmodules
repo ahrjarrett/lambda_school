@@ -49,3 +49,6 @@
 [submodule "submodules/DOM-II"]
 	path = submodules/DOM-II
 	url = https://github.com/victoramontoya/DOM-II
+[submodule "submodules/Components-BEM"]
+	path = submodules/Components-BEM
+	url = https://github.com/ahrjarrett/Components-BEM
