@@ -52,3 +52,18 @@
 [submodule "submodules/Components-BEM"]
 	path = submodules/Components-BEM
 	url = https://github.com/ahrjarrett/Components-BEM
+[submodule "submodules/Components-Constructors"]
+	path = submodules/Components-Constructors
+	url = https://github.com/ahrjarrett/Components-Constructors
+[submodule "submodules/Sprint-Challenge-DOM-Javascript"]
+	path = submodules/Sprint-Challenge-DOM-Javascript
+	url = https://github.com/ahrjarrett/Sprint-Challenge-DOM-Javascript
+[submodule "submodules/React-I"]
+	path = submodules/React-I
+	url = https://github.com/ahrjarrett/React-I
+[submodule "submodules/React-I-Mini-Sprint"]
+	path = submodules/React-I-Mini-Sprint
+	url = https://github.com/ahrjarrett/React-I-Mini-Sprint
+[submodule "submodules/React-II-Mini-Sprint"]
+	path = submodules/React-II-Mini-Sprint
+	url = https://github.com/ahrjarrett/React-II-Mini-Sprint

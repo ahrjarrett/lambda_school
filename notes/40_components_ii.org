@@ -1,0 +1,9 @@
+#+TITLE: 40: Components II
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Timestamp & TODOS
+
+<2018-03-14 Wed 19:00>
+
