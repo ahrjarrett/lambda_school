@@ -67,3 +67,6 @@
 [submodule "submodules/React-II-Mini-Sprint"]
 	path = submodules/React-II-Mini-Sprint
 	url = https://github.com/ahrjarrett/React-II-Mini-Sprint
+[submodule "submodules/Sprint-Challenge---React"]
+	path = submodules/Sprint-Challenge---React
+	url = https://github.com/ahrjarrett/Sprint-Challenge---React
