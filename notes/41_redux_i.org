@@ -1,0 +1,184 @@
+#+TITLE: 41: Redux I
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+* Timestamp & TODOS
+<2018-04-16 Mon 19:00>
+
+* Notes
+
+Today we're talking about Redux.
+
+Redux is a tool that allows us to maintain application-level state.
+
+Sometimes it can over-complicate things.
+
+Most of the time, if a company uses React, they will use Redux.
+
+Redux/React developers are in high demand these days, but that's not enough of a reason to use it. Redux is an amazing tool when you need it, you just need to get past the initial learning curve.
+
+But first, we need to talk about *state machines*.
+
+** State Machines
+
+A state machine is this abstract concept where the machine, which can be anything, can have different states at different times. If can fulfill different states at different times, but it can only fulfill one of them at a time. For example, a light switch; a light switch is only ever on, or only ever off.
+
+A traffic light, a turnstile -- these are examples of state machines.
+
+Redux allows us to create a state machine: we allow our application to be in one, discrete state at any given time. This affords us a lot of benefits, for example, we can serialize the state of our app.
+
+This brings us to the next important topic for understanding Redux: _mutability_.
+
+** Mutability
+
+First we need to talk about primitives:
+
+#+BEGIN_SRC javascript
+  let str1 = 'String'
+  let str2 = str1
+
+  str2 = 'Another String'
+
+  console.log(str2) // => 'Another String'
+
+  // Note that the value of str2 has changed.
+  // But we haven't changed the value of the String that str2 or str1 is pointing to.
+
+
+  // Same goes for numbers and booleans:
+  let num = 42
+  let bool = true
+
+  // We can change the references to numbers, booleans, strings, but we
+  // cannot modify these types themselves.
+#+END_SRC
+
+In other words, primitives are /immutable/.
+
+Objects and Arrays do not behave in the same way in JavaScript.
+
+#+BEGIN_SRC javascript
+  let myObj = {
+      name: 'dan',
+      isMutable: true,
+  }
+
+  let anotherObj = myObj
+
+  anotherObj.name = 'andrew'
+
+  console.log(myObj === anotherObj) // => true!
+
+  // This is totally insane.
+#+END_SRC
+
+Introducing =Object.assign=:
+
+*** Object.assign
+
+Object.assign is going to take a number of objects, and create a new object out of it.
+
+#+BEGIN_SRC javascript
+  const myObj = {
+      name: 'Dan',
+      isMutable: true,
+  }
+
+  const anotherObj = Object.assign({}, myObj, {name: 'Josh'})
+#+END_SRC
+
+
+*** Immutability Practice
+
+[[https://repl.it/@ahrjarrett/Immutabilitypractice][My repl.it of the problem/solution]]
+
+#+BEGIN_SRC javascript
+  //ARRAYS:
+
+  const myArrayOfAges = [
+    {name: 'Fred', age: 43},
+    {name: 'Barney', age: 39},
+    {name: 'Wilma', age: 38},
+    {name: 'Betty', age: 38},
+    {name: 'Bam-Bam', age: 3},
+    {name: 'Pebbles', age: 4},
+    {name: 'Dino', age: 2},
+  ];
+
+  //From the above Array,
+  //map over the array (creating a new array) incrementing everyones age by 1 
+  //reduce a the array into an average of ages. Once again do not mutate the original array.
+  //filter out any of the ages that aren’t old enough to drink. Return a new array of those that are allowed to drink.
+  //concat our array adding a new character to it. Remember again to create a new array from your given array and not to manipulate the original. .push .unshift shouldn’t be used here. Once we achieve this with the .concat method. Lets refactor it to use the spread operator. [...myArrayOfAges, {name: 'Mr. Slate', age: 41}]
+
+  const incAges = myArrayOfAges.map(obj =>
+    Object.assign({}, obj, {age: obj.age + 1}))
+
+  const avgAges = myArrayOfAges.reduce((acc, {age}, i, {length}) => {
+    return i === length - 1 
+      ? (acc + age) / length
+      : acc + age
+  }, 0)
+
+  const ofDrinkingAge = myArrayOfAges.filter(({ age }) => age >= 21)
+
+  const newArray = [...myArrayOfAges, {name: 'Mr. Slate', age: 41}]
+
+  //OBJECTS:
+
+  const moniqueCS11 = {
+    name: 'Monique',
+    cohort: 'CS11' 
+  }
+
+  const moniqueCS12 = Object.assign(
+    {},
+    moniqueCS11,
+    {cohort: 'CS12'}
+  )
+
+  //Create a new object that changes monique to CS12
+  //The console logs below should be uncommented and each should output a seperate object. The last console should return false.
+
+  // const moniqueCS12 = ___;
+
+  console.log('Original Obj:', moniqueCS11);
+  console.log('New Obj:', moniqueCS12);
+  console.log(moniqueCS11 === moniqueCS12);
+
+#+END_SRC
+
+*** Basic Redux Application
+
+#+BEGIN_SRC javascript
+  import { createStore } from 'redux'
+
+  // Reducer(s)
+  const counterReducer = (state = 0, action) => {
+      switch(action.type) {
+      case 'INCREMENT':
+          return state + action.payload
+      case 'DECREMENT':
+          return state - action.payload
+      default:
+          return state
+      }
+  }
+
+  //Store
+  const state = createStore(counterReducer)
+  state.subscribe(() => {
+      console.log('Updated Store:', store.getState())
+  })
+
+  //Action(s)
+  state.dispatch({ type: 'INCREMENT', payload: 1 }) // => Updated Store: 1
+  state.dispatch({ type: 'INCREMENT', payload: 1 }) // => Updated Store: 2
+  state.dispatch({ type: 'DECREMENT', payload: 1 }) // => Updated Store: 1
+  state.dispatch({ type: 'DECREMENT', payload: 1 }) // => Updated Store: 0
+
+#+END_SRC
+
+
+
