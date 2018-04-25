@@ -85,3 +85,6 @@
 [submodule "submodules/HTTP-AJAX-LOCAL"]
 	path = submodules/HTTP-AJAX-LOCAL
 	url = https://github.com/CSPT1-TEAMS/HTTP-AJAX
+[submodule "submodules/HTTP-Movies-Stretch-Assignment"]
+	path = submodules/HTTP-Movies-Stretch-Assignment
+	url = https://github.com/ahrjarrett/HTTP-Movies-Stretch-Assignment
