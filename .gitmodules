@@ -79,3 +79,6 @@
 [submodule "submodules/Redux-Swapi"]
 	path = submodules/Redux-Swapi
 	url = https://github.com/ahrjarrett/Redux-Swapi
+[submodule "submodules/Redux-Todo"]
+	path = submodules/Redux-Todo
+	url = https://github.com/CSPT1-TEAMS/Redux-Todo
