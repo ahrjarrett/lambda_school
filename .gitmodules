@@ -76,3 +76,6 @@
 [submodule "submodules/Sprint-Challenge-Routing-Axios"]
 	path = submodules/Sprint-Challenge-Routing-Axios
 	url = https://github.com/ahrjarrett/Sprint-Challenge-Routing-Axios
+[submodule "submodules/Redux-Swapi"]
+	path = submodules/Redux-Swapi
+	url = https://github.com/ahrjarrett/Redux-Swapi
