@@ -82,3 +82,6 @@
 [submodule "submodules/Redux-Todo"]
 	path = submodules/Redux-Todo
 	url = https://github.com/CSPT1-TEAMS/Redux-Todo
+[submodule "submodules/HTTP-AJAX-LOCAL"]
+	path = submodules/HTTP-AJAX-LOCAL
+	url = https://github.com/CSPT1-TEAMS/HTTP-AJAX
