@@ -91,3 +91,6 @@
 [submodule "submodules/Redux-Friends"]
 	path = submodules/Redux-Friends
 	url = https://github.com/CSPT1-TEAMS/Redux-Friends
+[submodule "submodules/Sprint-Challenge--Redux"]
+	path = submodules/Sprint-Challenge--Redux
+	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge--Redux
