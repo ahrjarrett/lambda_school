@@ -88,3 +88,6 @@
 [submodule "submodules/HTTP-Movies-Stretch-Assignment"]
 	path = submodules/HTTP-Movies-Stretch-Assignment
 	url = https://github.com/ahrjarrett/HTTP-Movies-Stretch-Assignment
+[submodule "submodules/Redux-Friends"]
+	path = submodules/Redux-Friends
+	url = https://github.com/CSPT1-TEAMS/Redux-Friends
