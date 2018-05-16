@@ -97,3 +97,6 @@
 [submodule "submodules/front-end-project-week"]
 	path = submodules/front-end-project-week
 	url = https://github.com/ahrjarrett/front-end-project-week
+[submodule "submodules/Node-Express-Lab"]
+	path = submodules/Node-Express-Lab
+	url = https://github.com/CSPT1-TEAMS/Node-Express-Lab
