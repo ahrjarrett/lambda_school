@@ -1,0 +1,28 @@
+#+TITLE: Node.js: Week 2, Day 1
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+#+OPTIONS: num:nil
+
+*Vocab*: /idempotent/
+
+* REST
+
+REST stands for "Representational State Transfer"
+
+These are recommendations, not law.
+
+** Constraints
+
+- client-server architecture
+- stateless architecture: requests are not related to each others, they stand on their own
+- cacheable
+  * GET PUT DELETE, idempotent (every request with the same data, should get the same data back)
+  * Db - Redix, Vanilla JS Object
+- layered system
+  * Client should not know if it is directly communicating with the server.
+  * This is for security reasons; the client doesn't need to know what kind of database we're using, what kind of architecture we're using; it doesn't need to know these things, so why give it that info and open up the potention for abuse?
+- code on demand
+  * The server can change the client's behavior or functionality by sending the client code
+- uniform interfaces
+
+
