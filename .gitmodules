@@ -100,3 +100,6 @@
 [submodule "submodules/Node-Express-Lab"]
 	path = submodules/Node-Express-Lab
 	url = https://github.com/CSPT1-TEAMS/Node-Express-Lab
+[submodule "submodules/mongo-films"]
+	path = submodules/mongo-films
+	url = https://github.com/CSPT1-TEAMS/mongo-films
