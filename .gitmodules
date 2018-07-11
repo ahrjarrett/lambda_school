@@ -103,3 +103,6 @@
 [submodule "submodules/mongo-films"]
 	path = submodules/mongo-films
 	url = https://github.com/CSPT1-TEAMS/mongo-films
+[submodule "submodules/React-Testing"]
+	path = submodules/React-Testing
+	url = https://github.com/CSPT1-TEAMS/React-Testing
