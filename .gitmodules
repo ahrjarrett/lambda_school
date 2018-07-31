@@ -106,3 +106,6 @@
 [submodule "submodules/React-Testing"]
 	path = submodules/React-Testing
 	url = https://github.com/CSPT1-TEAMS/React-Testing
+[submodule "submodules/Intro-Python"]
+	path = submodules/Intro-Python
+	url = https://github.com/CSPT1-TEAMS/Intro-Python
