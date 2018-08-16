@@ -109,3 +109,6 @@
 [submodule "submodules/Intro-Python"]
 	path = submodules/Intro-Python
 	url = https://github.com/CSPT1-TEAMS/Intro-Python
+[submodule "submodules/Data-Structures"]
+	path = submodules/Data-Structures
+	url = https://github.com/CSPT1-TEAMS/Data-Structures
