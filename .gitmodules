@@ -112,3 +112,6 @@
 [submodule "submodules/Data-Structures"]
 	path = submodules/Data-Structures
 	url = https://github.com/CSPT1-TEAMS/Data-Structures
+[submodule "submodules/Sprint-Challenge--Intro-Python"]
+	path = submodules/Sprint-Challenge--Intro-Python
+	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge--Intro-Python
