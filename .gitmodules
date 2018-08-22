@@ -115,3 +115,6 @@
 [submodule "submodules/Sprint-Challenge--Intro-Python"]
 	path = submodules/Sprint-Challenge--Intro-Python
 	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge--Intro-Python
+[submodule "submodules/Knapsack"]
+	path = submodules/Knapsack
+	url = https://github.com/CSPT1-TEAMS/Knapsack
