@@ -118,6 +118,3 @@
 [submodule "submodules/Knapsack"]
 	path = submodules/Knapsack
 	url = https://github.com/CSPT1-TEAMS/Knapsack
-[submodule "Sprint-Challenge--Data-Structures-Algorithms"]
-	path = Sprint-Challenge--Data-Structures-Algorithms
-	url = https://github.com/LambdaSchool/Sprint-Challenge--Data-Structures-Algorithms
