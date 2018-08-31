@@ -121,6 +121,6 @@
 [submodule "submodules/Sprint-Challenge--Data-Structures-Algorithms"]
 	path = submodules/Sprint-Challenge--Data-Structures-Algorithms
 	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge--Data-Structures-Algorithms
-[submodule "submodules/Graphs"]
-	path = submodules/Graphs
+[submodule "submodules/graphs"]
+	path = submodules/graphs
 	url = https://github.com/CSPT1-TEAMS/Graphs
