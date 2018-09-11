@@ -124,3 +124,6 @@
 [submodule "submodules/graphs"]
 	path = submodules/graphs
 	url = https://github.com/CSPT1-TEAMS/Graphs
+[submodule "submodules/Secret-Gists"]
+	path = submodules/Secret-Gists
+	url = https://github.com/CSPT1-TEAMS/Secret-Gists
