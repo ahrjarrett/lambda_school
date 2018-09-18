@@ -127,3 +127,6 @@
 [submodule "submodules/Secret-Gists"]
 	path = submodules/Secret-Gists
 	url = https://github.com/CSPT1-TEAMS/Secret-Gists
+[submodule "submodules/Theory-Of-Computation"]
+	path = submodules/Theory-Of-Computation
+	url = https://github.com/CSPT1-TEAMS/Theory-Of-Computation
