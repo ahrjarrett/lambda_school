@@ -130,3 +130,6 @@
 [submodule "submodules/Theory-Of-Computation"]
 	path = submodules/Theory-Of-Computation
 	url = https://github.com/CSPT1-TEAMS/Theory-Of-Computation
+[submodule "submodules/Sprint-Challenge--Security-Theory"]
+	path = submodules/Sprint-Challenge--Security-Theory
+	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge--Security-Theory
