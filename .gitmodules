@@ -133,3 +133,6 @@
 [submodule "submodules/Sprint-Challenge--Security-Theory"]
 	path = submodules/Sprint-Challenge--Security-Theory
 	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge--Security-Theory
+[submodule "submodules/Intro-to-C"]
+	path = submodules/Intro-to-C
+	url = https://github.com/CSPT1-TEAMS/Intro-to-C
