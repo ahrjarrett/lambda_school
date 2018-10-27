@@ -136,3 +136,6 @@
 [submodule "submodules/Intro-to-C"]
 	path = submodules/Intro-to-C
 	url = https://github.com/CSPT1-TEAMS/Intro-to-C
+[submodule "submodules/Sprint-Challenge--C-Web-Server"]
+	path = submodules/Sprint-Challenge--C-Web-Server
+	url = https://github.com/cspt1-teams/Sprint-Challenge--C-Web-Server
