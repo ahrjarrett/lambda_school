@@ -142,3 +142,6 @@
 [submodule "submodules/Sprint-Challenge-Node-Express"]
 	path = submodules/Sprint-Challenge-Node-Express
 	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge-Node-Express
+[submodule "submodules/Intro-Django"]
+	path = submodules/Intro-Django
+	url = https://github.com/CSPT1-TEAMS/Intro-Django
