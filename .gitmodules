@@ -139,3 +139,6 @@
 [submodule "submodules/Sprint-Challenge--C-Web-Server"]
 	path = submodules/Sprint-Challenge--C-Web-Server
 	url = https://github.com/cspt1-teams/Sprint-Challenge--C-Web-Server
+[submodule "submodules/Sprint-Challenge-Node-Express"]
+	path = submodules/Sprint-Challenge-Node-Express
+	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge-Node-Express
