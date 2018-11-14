@@ -145,3 +145,6 @@
 [submodule "submodules/Intro-Django"]
 	path = submodules/Intro-Django
 	url = https://github.com/CSPT1-TEAMS/Intro-Django
+[submodule "submodules/Sprint-Challenge-Mongo"]
+	path = submodules/Sprint-Challenge-Mongo
+	url = https://github.com/cspt1-teams/Sprint-Challenge-Mongo/
