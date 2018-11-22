@@ -151,3 +151,6 @@
 [submodule "submodules/Sprint-Challenge-Authentication"]
 	path = submodules/Sprint-Challenge-Authentication
 	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge-Authentication
+[submodule "submodules/Sprint-Challenge--Testing"]
+	path = submodules/Sprint-Challenge--Testing
+	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge--Testing
