@@ -154,3 +154,6 @@
 [submodule "submodules/Sprint-Challenge--Testing"]
 	path = submodules/Sprint-Challenge--Testing
 	url = https://github.com/CSPT1-TEAMS/Sprint-Challenge--Testing
+[submodule "submodules/back-end-project-week"]
+	path = submodules/back-end-project-week
+	url = https://github.com/CSPT1-TEAMS/back-end-project-week
