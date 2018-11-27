@@ -157,3 +157,6 @@
 [submodule "submodules/back-end-project-week"]
 	path = submodules/back-end-project-week
 	url = https://github.com/CSPT1-TEAMS/back-end-project-week
+[submodule "submodules/LambdaMUD-Project"]
+	path = submodules/LambdaMUD-Project
+	url = https://github.com/CSPT1-TEAMS/LambdaMUD-Project
